@@ -6,7 +6,7 @@
 #### [Filter and Map LF](http://jsbin.com/wudefe/65/edit?js,console)
 
 ## Assignment 3
-#### [Reduce LF](https://jsbin.com/navife/edit?js,console)
+#### [Reduce LF](https://jsbin.com/navife/16/edit?js,console)
 
 ## Assignment 4
 
