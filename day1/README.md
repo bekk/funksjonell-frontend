@@ -47,7 +47,7 @@ function removeIndices(arr) {
     }
 ```
 
-[Tasks](http://jsbin.com/wudefe/61/edit?js,console)
+#### [Tasks](http://jsbin.com/tetevo/2/edit?js,console)
 
 ### Reduce
 The last applicative function we will look at for now is reduce. Reduce applies a function against an accumulator and each value of the array to reduce it to a single value.
