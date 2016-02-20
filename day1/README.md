@@ -1,6 +1,12 @@
 # Day 1 - functional programming in JavaScript
 
 ## Map and Filter
+### Map
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element in the original array. 
+
+### Filter
+Filter is a higher-order function that takes an array and a predicate, and returns a new array with the values that the predicate accepts.
+
 ### [Tasks](http://jsbin.com/wudefe/52/edit?js,console)
 
 ## Making HTML with functions
