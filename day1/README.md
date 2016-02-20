@@ -9,3 +9,6 @@
 #### [Reduce LF](https://jsbin.com/navife/edit?js,console)
 
 ## Assignment 4
+
+## Assignment 5
+#### [More functions](http://jsbin.com/qaxiha/7/edit?js,console)
