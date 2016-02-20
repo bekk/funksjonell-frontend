@@ -47,7 +47,7 @@ function removeOddIndices(array) {
     }
 ```
 
-#### [Tasks](http://jsbin.com/tetevo/7/edit?js,console)
+#### [Tasks](http://jsbin.com/tetevo/8/edit?js,console)
 
 ### Reduce
 The last applicative function we will look at for now is reduce. Reduce applies a function against an accumulator and each value of the array to reduce it to a single value. Reduce is different from map and filter in that it returns a value rather than a collection. However, the value could also be a collection.
