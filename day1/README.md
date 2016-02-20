@@ -1,6 +1,6 @@
 # Day 1 - functional programming in JavaScript
 
-## Map and Filter
+## Higher-order functions
 ### Map
 Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element in the original array. 
 
@@ -26,6 +26,26 @@ function square(arr) {
 
 ### Filter
 Filter is a higher-order function that takes an array and a predicate, and returns a new array with the values that the predicate accepts.
+
+#### Example: for-loop
+
+```javascript
+function removeOddIndicesFor(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (i % 2 === 0) {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+```
+#### Example: filter
+```javascript
+function removeIndices(arr) {
+      return arr.filter((val, index) => index % 2 === 0);
+    }
+```
 
 [Tasks](http://jsbin.com/wudefe/61/edit?js,console)
 
