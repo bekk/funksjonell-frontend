@@ -43,7 +43,7 @@ function removeOddIndicesFor(array) {
 #### Example: filter
 ```javascript
 function removeOddIndices(array) {
-      return array.filter((val, index) => index % 2 === 0);
+      return array.filter((val, index, collection) => index % 2 === 0);
     }
 ```
 
@@ -173,5 +173,3 @@ const twoAdder = curriedAdder(2);
 //curriedAdder(2,8) === 10;
 //twoAdder(8) === 10;
 ```
-### Composition
-
