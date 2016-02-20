@@ -4,10 +4,30 @@
 ### Map
 Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element in the original array. 
 
+#### Example: for-loop
+
+```javascript
+function squareFor(arr) {
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        newArr.push(arr[i] * arr[i]);
+      }
+      return newArr;
+    }
+```
+#### Example: map
+```javascript
+function square(arr) {
+      return arr.map(function(value, index, collection) {
+        return value * value;
+      });
+    }
+```
+
 ### Filter
 Filter is a higher-order function that takes an array and a predicate, and returns a new array with the values that the predicate accepts.
 
-### [Tasks](http://jsbin.com/wudefe/52/edit?js,console)
+[Tasks](http://jsbin.com/wudefe/61/edit?js,console)
 
 ## Making HTML with functions
 
