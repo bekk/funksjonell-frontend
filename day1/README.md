@@ -2,23 +2,23 @@
 
 ## Higher-order functions
 ### Map
-Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element in the original array. 
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. 
 
 #### Example: for-loop
 
 ```javascript
-function squareFor(arr) {
+function squareFor(...rest) {
       var newArr = [];
-      for (var i = 0; i < arr.length; i++) {
-        newArr.push(arr[i] * arr[i]);
+      for (var i = 0; i < rest.length; i++) {
+        newArr.push(arr[i] * rest[i]);
       }
       return newArr;
     }
 ```
 #### Example: map
 ```javascript
-function square(arr) {
-      return arr.map(function(value, index, collection) {
+function square(...rest) {
+      return rest.map(function(value, index, collection) {
         return value * value;
       });
     }
@@ -30,11 +30,11 @@ Filter is a higher-order function that takes an array and a predicate, and retur
 #### Example: for-loop
 
 ```javascript
-function removeOddIndicesFor(arr) {
+function removeOddIndicesFor(array) {
         var newArr = [];
-        for (var i = 0; i < arr.length; i++) {
+        for (var i = 0; i < array.length; i++) {
             if (i % 2 === 0) {
-                newArr.push(arr[i]);
+                newArr.push(array[i]);
             }
         }
         return newArr;
@@ -42,8 +42,8 @@ function removeOddIndicesFor(arr) {
 ```
 #### Example: filter
 ```javascript
-function removeIndices(arr) {
-      return arr.filter((val, index) => index % 2 === 0);
+function removeIndices(array) {
+      return array.filter((val, index) => index % 2 === 0);
     }
 ```
 
