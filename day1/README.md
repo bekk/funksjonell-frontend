@@ -49,6 +49,40 @@ function removeIndices(arr) {
 
 [Tasks](http://jsbin.com/wudefe/61/edit?js,console)
 
+### Reduce
+The last applicative function we will look at for now is reduce. Reduce applies a function against an accumulator and each value of the array to reduce it to a single value.
+Reduce is different from map and filter in that it returns a value rather than a collection. However, the value could also be a collection. 
+
+A classic example  is to sum all numbers in an array. This can be achieved using a classic for loop:
+#### Example for-loop
+```javascript
+function sumFor(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum;
+  }
+```
+This could also be done using reduce:
+
+#### Example reduce
+```javascript
+  function sum(arr) {
+    return arr.reduce((acc, value) =>{
+      // What is returned in this function is used as `acc` for
+      // the next iteration
+      return acc + value;
+    }, 0);
+    // 0 is the starting value for `acc`
+
+    // What we return on the last iteration is the result of
+    // the reduce.
+  }
+```
+
+[Tasks](https://jsbin.com/yiwoku/edit?js,console)
+
 ## Making HTML with functions
 
 https://jsbin.com/mugusi/edit?js,output
