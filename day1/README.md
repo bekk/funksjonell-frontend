@@ -123,3 +123,38 @@ function ul(...rest) {
 }
 ```
 Hint: Just call the el function with the correct type and pass rest as ...rest.
+
+## More functions
+### Function factories
+Functions that return other functions.
+```javascript
+function makeAdder(arg) {
+  return function(arg2) {
+    return arg + arg2;
+  }
+}
+
+const twoAdder = makeAdder(2);
+//twoAdder(8) === 10
+```
+### Partial application
+It is possible to partiall apply arguments to functions.
+```javascript
+function addOne() {
+      return this + 1;
+}
+
+const fourPlusOne = addOne.bind(4)
+//fourPlusOne() === 5
+
+function plus(a, b) {
+      return a + b;
+}
+// Now, let's bind the first of these parameters, `a`, to
+// the value 2.
+const addTwo = plus.bind(null, 2);
+//addTwo(2) === 4
+```
+### Currying
+### Composition
+### 
