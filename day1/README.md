@@ -1,5 +1,7 @@
 # Day 1 - functional programming in JavaScript
 
+## Map and Filter
+### [Tasks](http://jsbin.com/wudefe/52/edit?js,console)
 
 ## Making HTML with functions
 
