@@ -1,0 +1,27 @@
+Pensumliste
+=======================
+Del 1: Intro til funksjoner
+- Syntaks for funksjoner. function, funksjoner i variabler, fat arrows. Vise noen enkle funksjoner.
+- Kalle funksjoner: Argumenter. Variable argumentlister. Rest-operator? Etterhvert destructuring?? Forskjell på å kalle og å sende med referansen.
+- func1(func2(var1))
+- Oppgaver ^^^^ + LF
+
+Del 2: Bruk av arrayfunksjoner (map, filter, reduce)
+- Funksjoner kaller andre funksjoner (første ordens funksjoner).
+- Intro til map, filter, reduce. Nevne applicative programming? Returnerer nye arrays. Jobber ikke på samme array hele tia.
+- Filter
+- Map
+- Oppgaver ^^^^
+- Reduce
+- Oppgaver ^^^^
+
+Del 3: Caseoppgave.
+- Lage webapp/html med funksjoner
+- Oppgave
+
+Del 4: Avanserte funksjoner.
+- Higher order functions.
+- Function factories.
+- Partial application (kanskje currying?).
+- Komposisjon, pipelines.
+- Oppgaver ^^^^
