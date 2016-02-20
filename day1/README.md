@@ -2,6 +2,6 @@
 
 ## Assignment 1
 
-##[Reduce LF](https://jsbin.com/navife/5/edit?js,console)
+##[Reduce LF](https://jsbin.com/navife/edit?js,console)
 
 ## Assignment 3
