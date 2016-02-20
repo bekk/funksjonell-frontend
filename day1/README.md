@@ -2,6 +2,10 @@
 
 ## Assignment 1
 
-##[Reduce LF](https://jsbin.com/navife/edit?js,console)
+## Assignment 2
+#### [Filter and Map LF](http://jsbin.com/wudefe/62/edit?js,console)
 
 ## Assignment 3
+#### [Reduce LF](https://jsbin.com/navife/edit?js,console)
+
+## Assignment 4
