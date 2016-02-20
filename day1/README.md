@@ -80,7 +80,7 @@ This could also be done using reduce:
   }
 ```
 
-#### [Tasks](https://jsbin.com/diqiqin/edit?js,console)
+#### [Tasks](https://jsbin.com/basuxog/3/edit?js,console)
 
 ## Making HTML with functions
 
