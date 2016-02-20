@@ -42,7 +42,7 @@ function removeOddIndicesFor(array) {
 ```
 #### Example: filter
 ```javascript
-function removeIndices(array) {
+function removeOddIndices(array) {
       return array.filter((val, index) => index % 2 === 0);
     }
 ```
