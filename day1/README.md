@@ -173,3 +173,5 @@ const twoAdder = curriedAdder(2);
 //curriedAdder(2,8) === 10;
 //twoAdder(8) === 10;
 ```
+
+#### [Tasks](http://jsbin.com/keqoha/edit?js,console)
