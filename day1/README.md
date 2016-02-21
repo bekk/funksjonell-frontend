@@ -88,7 +88,7 @@ This could also be done using reduce:
     // the reduce.
   }
 ```
-
+#### [Demonstration](https://jsbin.com/mocohi/edit?js,console)
 #### [Tasks](https://jsbin.com/basuxog/edit?js,console)
 
 ## Making HTML with functions
@@ -132,7 +132,7 @@ function ul(...rest) {
 ```
 Hint: Just call the el function with the correct type and pass rest as ...rest.
 
-## More functions
+## Advanced functions
 ### Function factories
 Functions that return other functions.
 ```javascript
