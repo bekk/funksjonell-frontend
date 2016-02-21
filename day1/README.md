@@ -143,6 +143,10 @@ function makeAdder(arg) {
 }
 
 const twoAdder = makeAdder(2);
+//twoAdder = function(arg2){
+//              return 2 + arg2;
+//      }
+//
 //twoAdder(8) === 10
 ```
 ### Partial application
@@ -153,6 +157,10 @@ function addOne() {
 }
 
 const fourPlusOne = addOne.bind(4)
+//fourPlusOne = function(){
+//              return 4 + 1;
+//      }
+//
 //fourPlusOne() === 5
 
 function plus(a, b) {
@@ -179,6 +187,8 @@ function simpleCurry(fn) {
 
 const curriedAdder = simpleCurry((a,b) => a+b);
 const twoAdder = curriedAdder(2);
+//twoAdder = b => 2 + b;
+//
 //curriedAdder(2,8) === 10;
 //twoAdder(8) === 10;
 ```
