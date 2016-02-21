@@ -174,20 +174,16 @@ const addTwo = plus.bind(null, 2);
 ### Currying
 A curried function is a function that will return a new function until it receives all of its arguments
 ```javascript
-function simpleCurry(fn) {
-    return function(first, second) {
+function curriedAdder(first, second) {
       if (second === undefined) {
-        return function(second) {
-          return fn(first, second);
-        }
+        return (second) => first + second 
       }
-      return fn(first, second);
+      return first + second;
     };
   };
 
-const curriedAdder = simpleCurry((a,b) => a+b);
 const twoAdder = curriedAdder(2);
-//twoAdder = b => 2 + b;
+//twoAdder = second => 2 + second;
 //twoAdder(8) === 10;
 //curriedAdder(2,8) === 10;
 
