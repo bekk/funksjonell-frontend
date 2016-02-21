@@ -68,7 +68,7 @@ This could also be done using reduce:
 #### Example reduce
 ```javascript
   function sum(arr) {
-    return arr.reduce((acc, value) =>{
+    return arr.reduce((acc, value, index, collection) =>{
       // What is returned in this function is used as `acc` for
       // the next iteration
       return acc + value;
