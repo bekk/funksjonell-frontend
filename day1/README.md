@@ -188,9 +188,9 @@ function simpleCurry(fn) {
 const curriedAdder = simpleCurry((a,b) => a+b);
 const twoAdder = curriedAdder(2);
 //twoAdder = b => 2 + b;
-//
-//curriedAdder(2,8) === 10;
 //twoAdder(8) === 10;
+//curriedAdder(2,8) === 10;
+
 ```
 
 #### [Tasks](http://jsbin.com/keqoha/edit?js,console)
