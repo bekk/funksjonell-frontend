@@ -1,28 +1,6 @@
 # Day 1 - functional programming in JavaScript
 
 ## Higher-order functions
-### Map
-Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. 
-
-#### Example: for-loop
-
-```javascript
-function squareFor(...rest) {
-      var newArr = [];
-      for (var i = 0; i < rest.length; i++) {
-        newArr.push(arr[i] * rest[i]);
-      }
-      return newArr;
-    }
-```
-#### Example: map
-```javascript
-function square(...rest) {
-      return rest.map(function(value, index, collection) {
-        return value * value;
-      });
-    }
-```
 
 ### Filter
 Filter is a higher-order function that takes an array and a predicate, and returns a new array with the values that the predicate accepts.
@@ -39,12 +17,43 @@ function removeOddIndicesFor(array) {
         }
         return newArr;
     }
+    
+//removeOddIndicesFor([0,1,2,3,4]) === [0,2,4]
 ```
 #### Example: filter
 ```javascript
 function removeOddIndices(array) {
       return array.filter((val, index, collection) => index % 2 === 0);
     }
+    
+//removeOddIndices([0,1,2,3,4]) === [0,2,4]
+```
+
+### Map
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. 
+
+#### Example: for-loop
+
+```javascript
+function squareFor(...rest) {
+      var newArr = [];
+      for (var i = 0; i < rest.length; i++) {
+        newArr.push(arr[i] * rest[i]);
+      }
+      return newArr;
+    }
+ 
+//squareFor([2,3,4]) === [4,9,16]
+```
+#### Example: map
+```javascript
+function square(...rest) {
+      return rest.map(function(value, index, collection) {
+        return value * value;
+      });
+    }
+    
+//square([2,3,4]) === [4,9,16]
 ```
 
 #### [Tasks](http://jsbin.com/tetevo/edit?js,console)
