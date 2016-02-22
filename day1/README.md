@@ -17,7 +17,7 @@ function removeOddIndicesFor(array) {
         }
         return newArr;
     }
-    
+
 //removeOddIndicesFor([0,1,2,3,4]) === [0,2,4]
 ```
 #### Example: filter
@@ -25,12 +25,12 @@ function removeOddIndicesFor(array) {
 function removeOddIndices(array) {
       return array.filter((val, index, collection) => index % 2 === 0);
     }
-    
+
 //removeOddIndices([0,1,2,3,4]) === [0,2,4]
 ```
 
 ### Map
-Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. 
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array.
 
 #### Example: for-loop
 
@@ -42,7 +42,7 @@ function squareFor(...rest) {
       }
       return newArr;
     }
- 
+
 //squareFor([2,3,4]) === [4,9,16]
 ```
 #### Example: map
@@ -52,7 +52,7 @@ function square(...rest) {
         return value * value;
       });
     }
-    
+
 //square([2,3,4]) === [4,9,16]
 ```
 
@@ -93,9 +93,9 @@ This could also be done using reduce:
 
 ## Making HTML with functions
 
-https://jsbin.com/mugusi/edit?js,output
+[Tasks](https://jsbin.com/yesuwi/edit?js,output)
 
-In this assignment you will create a simple web app by using functions to create HTML. We will do this in two parts. First you'll create some simple functions that return object descriptions of HTML elements like div and span. Then you'll combine these functions to make a tree of objects each describing itself and its children. Finally you'll make a few functions that will transform the object tree to HTML and then render that to the document.
+In this assignment you will create a simple web app by using functions to create descriptions of HTML elements (inspired by [Hyperscript](https://github.com/dominictarr/hyperscript)). We will use a similar approach as React where HTML elements are represented by plain JavaScript objects, and only later transformed to actual HTML. This way we can construct an entire app just using nested functions that return objects representing the element itself and all its child elements. In the assignments you will find a function for creating these descriptions along with helper functions for creating the most common elements, like div(), ul() etc.
 
 ### Object structure for HTML elements
 
@@ -105,32 +105,30 @@ In this assignment you will create a simple web app by using functions to create
   props: {
     class: 'highlighted'
   },
-  children: []
+  children: [{
+    type: 'span',
+    children: 'hello',
+  }]
 }
 ```
-The type key contains the node name of this element, e.g. div, span, ul and li. The props key is an object that contains all the attributes this HTML element will have e.g. class, onclick, disabled and so on. The children key will contain an array of child elements that are objects of the same structure as the parent, so that we can create f.ex `<div><span>Hello</span></div>`.
+The type key contains the node name of this element, e.g. div, span, ul and li. The props key is an object that contains all the attributes this HTML element will have e.g. class, onclick, disabled and so on. The children key will contain an array of child elements that are objects of the same structure as the parent, so that we can create e.g. `<div><span>Hello</span></div>`.
 
-#### Assignment: Create a function for describing HTML elements
 ```javascript
-function el(type, ...rest) {
+div({ class: 'highlighted' }, span('hello'))
 
-}
-el('div', {class: 'highlighted'}, el('span', 'Hello'));
-// {type: 'div', props: {class: 'highlighted'}, children: [{type: 'span', children: ['Hello']}]}
+const heroes = ul(
+  li('Santa Claus'),
+  li('Batman')
+)
+
+const submitButton = buttonText => button({ onclick: 'myFunction()'}, buttonText)
+
+div(
+  h1('My awesome app'),
+  heroes,
+  submitButton('Yes I am')
+)
 ```
-#### Assignment: Create some helper functions for creating common elements
-```javascript
-function div(...rest) {
-
-}
-function span(...rest) {
-
-}
-function ul(...rest) {
-
-}
-```
-Hint: Just call the el function with the correct type and pass rest as ...rest.
 
 ## Advanced functions
 ### Function factories
@@ -176,7 +174,7 @@ A curried function is a function that will return a new function until it receiv
 ```javascript
 function curriedAdder(first, second) {
       if (second === undefined) {
-        return (second) => first + second 
+        return (second) => first + second
       }
       return first + second;
     };
