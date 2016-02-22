@@ -1,5 +1,9 @@
 # Day 1 - functional programming in JavaScript
 
+## Introduction to functions
+
+See [jsbin](http://jsbin.com/yazuho/)
+
 ## Higher-order functions
 
 ### Filter
