@@ -31,34 +31,47 @@ function button(...rest) {
   return el('button', ...rest);
 }
 
-const Persons = persons => ul(
-  ...persons.map(person => li(
-    person.isSpecial ? {class: 'highlight'} : {}, person.name
+const Contacts = (persons, highlight, filter) => ul(
+  ...persons.filter(filter || () => true).map(person => li(
+    highlight && highlight(person) ? {class: 'highlight'} : {}, person.name
   ))
 )
 
-const app = persons => div(
-  h1('Kursholdere'),
-  Persons(persons),
-  button({onclick: 'addPerson()'}, 'Legg til kursholder')
+const app = (persons, { highlight, filter } = {}) => div(
+  h1('Contacts'),
+  button({onclick: 'showAll()'}, 'Show all persons'),
+  button({onclick: 'showPeopleOver30()'}, 'Show persons over 30'),
+  button({onclick: 'highlightNamesThatStartWithP()'}, 'Highlight names starting with P'),
+  Contacts(persons, highlight, filter)
 )
 
-const initialPersons = [{name: 'Emil', isSpecial: true}, {name: 'Simen'}, {name: 'Øystein'}]
+const contacts = [{name: 'Tommy', age: 40}, {name: 'John', age: 10}, {name: 'Peter', age: 29}, {name: 'Paul', age: 31}]
 
-function addPerson() {
-  initialPersons.push({name: 'New person'});
-  document.querySelector('main').innerHTML = toHtml(app(initialPersons))
+function showPeopleOver30() {
+  DOM(render(app(contacts, {filter: person => person.age > 30})))
 }
 
-function propsToHtml(props = {}) {
+function showAll() {
+  DOM(render(app(contacts)))
+}
+
+function highlightNamesThatStartWithP() {
+  DOM(render(app(contacts, {highlight: person => person.name.startsWith('P')})))
+}
+
+function renderProps(props = {}) {
   return ' ' + Object.keys(props).map(key => key + '=' + props[key]).join(' ') + ' '
 }
 
-function toHtml(node) {
+function render(node) {
   if (typeof node === 'string') {
     return node
   }
-  return '<' + node.type + propsToHtml(node.props) + '>' + node.children.map(toHtml).join('') + '</' + node.type + '>'
+  return '<' + node.type + renderProps(node.props) + '>' + node.children.map(render).join('') + '</' + node.type + '>'
 }
 
-document.querySelector('main').innerHTML = toHtml(app(initialPersons))
+function DOM(html) {
+  document.querySelector('main').innerHTML = html;
+}
+
+DOM(render(app(contacts)));
