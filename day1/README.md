@@ -88,7 +88,7 @@ function square(...rest) {
 #### [Tasks](http://jsbin.com/tetevo/edit?js,console)
 
 ### Reduce
-The last applicative function we will look at for now is reduce. Reduce applies a function against an accumulator and each value of the array to reduce it to a single value. Reduce is different from map and filter in that it returns a value rather than a collection. However, the value could also be a collection.
+The last function we will look at for now is reduce. Reduce applies a function against an accumulator and each value of the array to reduce it to a single value. Reduce is different from map and filter in that it returns a value rather than a collection. However, the value could also be a collection.
 
 A classic example  is to sum all numbers in an array. This can be achieved using a classic for loop:
 #### Example for-loop
