@@ -1,8 +1,20 @@
 # Day 1 - functional programming in JavaScript
 
-## Introduction to functions
+## Introduction
 
-See [jsbin](http://jsbin.com/yazuho/)
+Welcome to day 1 of the course functional programming in JavaScript with React and Redux. This day is all about the basics of using functions to structure our programs and solve problems. Using functional programming on the front-end and web is quite new, but is very popular these days because it affords easier to understand programs with more controlled side-effects (like responding to user input, talking with REST APIs and updating data). Many libraries and frameworks like Angular and React have emerged to help us structure front-end code. They have varying approaches, but we find that a simple declarative and functional style helps us understand what we are doing. React is the most popular library that allows this style (when used correctly), so that is what we will use on day 2 and 3 of this course.
+
+Day 1 starts with an introduction to how we use functions in JavaScript, both with the current and new language features making its way into the standard (EcmaScript2015/ES6). This part is more examples and theory. Then we will proceed to talk about some of the most useful built-in functions in JavaScript: map, filter and reduce, all of which are functions defined on Array that returns either a new Array or a new value based on on the functions you pass to them. These functions enable a more declarative style where you instead of imperatively tell the computer to loop, you state your intention by e.g. mapping a list of values to a new list of different values, filter an array based on some condition and return a new one with only those elements, or finally reduce a list of values to a single value (e.g. a sum of all the values).
+
+After you have made a few functions yourself using map, filter and reduce, you will try your hand at a more involved case assignment. In this part you will combine a number of functions to construct representations of HTML elements. These elements can be combined and nested just like in regular HTML. Then you will implement a few functions that transform these JavaScript descriptions into HTML and render it to the DOM (in the browser so you can see the results). This will provide you with a basis for understanding how libraries like React really works (they are actually quite simple ;)).
+
+Finally, if you have time, we have some assignments on more advanced functional programming concepts like composition and currying. Understanding these concepts is not in any way required for the next couple of days. In fact, if you follow along in part 1 and complete most of the assignments in part 2, you are more than ready for the adventures of React and Redux.
+
+Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. If a part is difficult, please tell us, or just skip it. We will provide a summary/solution before we proceed to the next part.
+
+## Part 1 - Introduction to functions
+
+Please follow along at [jsbin](http://jsbin.com/yazuho/)
 
 ## Higher-order functions
 
