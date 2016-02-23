@@ -22,20 +22,17 @@ Please follow along at [jsbin](http://jsbin.com/yazuho/)
 
 Functional programmers love to talk fancy about all the cool features that they use, so we should explain some of them.
 
-### First order functions
+### First-class functions
 Unlike Java, functions in JavaScript can be put in variables. They can also be passed as arguments to other functions, so that the function can delegate some of its behavior to the arguments. Functions can even return functions! We call them function factories, because the create functions. All of this means that functions are first-class citizens, treated like every other part of the language, and not like some special bastards.
 
 ### Higher-order functions
 This is a fancy name for what we just said functions could do: They can take other functions in as arguments and even return other functions. We will see later why this is useful.
 
-### Applicative programming
-This is what we call a common pattern of having functions that accept another function as an argument, and then calls that function for each element in a collection. It needed a name, right? Right? Map, filter and reduce are all this type of functions.
-
 ### Pure functions
 Functions that do not change anything outside of the function itself. They have no side-effects. Given the same arguments, they always return the same thing. A function that stores a record in the database is not pure. A function that accepts an array and returns the sum of all the elements is pure. These are the best functions.
 
-### Array.filter
-Filter is a higher-order function that takes an array and a predicate function, and returns a new array with the values that the predicate function returns true for.
+### Filter
+Filter is a higher-order function that takes an array and a predicate function, and returns a new array with the values that the predicate function returns true for. An example is to remove all objects in an array with odd index. This could be done using a traditional for-loop, or by using the javascript built-in Array.filter function.
 
 #### How it looks with a traditional for-loop
 
@@ -62,7 +59,7 @@ function removeOddIndices(array) {
 ```
 
 ### Map
-Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array.
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. An example is to square all element in a list. This could also be done using a for-loop, or by using the Array.filter provided by javascript.
 
 #### How it looks with a traditional for-loop
 
