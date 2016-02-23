@@ -123,7 +123,7 @@ This could also be done using reduce:
 #### [Demonstration](https://jsbin.com/mocohi/edit?js,console)
 #### [Tasks](https://jsbin.com/basuxog/edit?js,console)
 
-## Making HTML with functions
+## Part 3 - Case study: Making HTML with functions
 
 [Tasks](https://jsbin.com/yesuwi/edit?js,output)
 
@@ -162,7 +162,7 @@ div(
 )
 ```
 
-## Advanced functions
+## Part 4 - Advanced functions
 ### Function factories
 Functions that return other functions.
 ```javascript
