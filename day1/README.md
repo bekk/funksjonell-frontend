@@ -103,7 +103,7 @@ function sumFor(arr) {
 ```
 This could also be done using reduce:
 
-#### Example reduce
+#### How it looks using Array.reduce
 ```javascript
   function sum(arr) {
     return arr.reduce((acc, value, index, collection) =>{
