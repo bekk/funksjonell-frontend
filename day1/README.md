@@ -80,7 +80,7 @@ function squareFor(...numbers) {
 #### How it looks using Array.map
 ```javascript
 function square(...numbers) {
-      return rest.map((value, index, collection) => value * value);
+      return numbers.map((value, index, collection) => value * value);
     }
 
 //square(2,3,4) === [4,9,16]
