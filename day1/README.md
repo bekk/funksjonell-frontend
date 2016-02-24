@@ -32,7 +32,7 @@ This is a fancy name for what we just said functions could do: They can take oth
 Functions that do not change anything outside of the function itself. They have no side-effects. Given the same arguments, they always return the same thing. A function that stores a record in the database is not pure. A function that accepts an array and returns the sum of all the elements is pure. These are the best functions.
 
 ### Filter
-Filter is a higher-order function that takes an array and a predicate function, and returns a new array with the values that the predicate function returns true for. An example is to remove all objects in an array with odd index. This could be done using a traditional for-loop, or by using the javascript built-in Array.filter function.
+Filter is a higher-order function that takes an array and a predicate function, and returns a new array with the values that the predicate function returns true for. An example is to remove all objects in an array with odd index. This could be done using a traditional for-loop.
 
 #### How it looks with a traditional for-loop
 
@@ -49,6 +49,9 @@ function removeOddIndicesFor(array) {
 
 //removeOddIndicesFor([0,1,2,3,4]) === [0,2,4]
 ```
+
+But for-loops involve alot of manual steps, which makes it error prone. Thankfully, javascript have a `filter` function on `Array.prototype`. For each iteration of map it invokes the function with three arguments: the current value, the current index, the entire collection. So we can write it like this instead:
+
 #### Look how clean it is using Array.filter
 ```javascript
 function removeOddIndices(array) {
@@ -59,7 +62,7 @@ function removeOddIndices(array) {
 ```
 
 ### Map
-Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. An example is to square all element in a list. This could also be done using a for-loop, or by using the Array.filter provided by javascript.
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. An example is to square all element in a list. This could also be done using a for-loop, or by using the `map` function, which is also available on `Array.prototype`.
 
 #### How it looks with a traditional for-loop
 
