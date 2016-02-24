@@ -67,7 +67,7 @@ Map is a higher-order function that takes an array and a function, and returns a
 #### How it looks with a traditional for-loop
 
 ```javascript
-function squareFor(...rest) {
+function squareFor(...numbers) {
       var newArr = [];
       for (var i = 0; i < rest.length; i++) {
         newArr.push(arr[i] * rest[i]);
@@ -75,17 +75,15 @@ function squareFor(...rest) {
       return newArr;
     }
 
-//squareFor([2,3,4]) === [4,9,16]
+//squareFor(2,3,4) === [4,9,16]
 ```
 #### How it looks using Array.map
 ```javascript
-function square(...rest) {
-      return rest.map(function(value, index, collection) {
-        return value * value;
-      });
+function square(...numbers) {
+      return rest.map((value, index, collection) => value * value);
     }
 
-//square([2,3,4]) === [4,9,16]
+//square(2,3,4) === [4,9,16]
 ```
 
 #### [Tasks](http://jsbin.com/tetevo/edit?js,console)
