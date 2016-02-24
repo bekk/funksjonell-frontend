@@ -211,7 +211,8 @@ function compose(...funcs) {
 ```
 
 ### Partial application
-It is possible to partially apply arguments to functions.
+It is possible to partially apply arguments to functions. Then we get a new function with these partial arguments "pre-filled", so that we can call the function with only the rest of the arguments. This can be achieved using the built-in function "bind" that exists on every function in JavaScript.
+
 ```javascript
 function addOne() {
       return this + 1;
@@ -233,7 +234,8 @@ const addTwo = plus.bind(null, 2);
 //addTwo(2) === 4
 ```
 ### Currying
-A curried function is a function that will return a new function until it receives all of its arguments
+A curried function is a function that will return a new function until it receives all of its arguments. You can think of it as automatic partial application.
+
 ```javascript
 function curriedAdder(first, second) {
       if (second === undefined) {
