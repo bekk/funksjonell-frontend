@@ -14,7 +14,7 @@ Remember, we are here to help you learn. Do not hesitate to ask questions. We wi
 
 ## Part 1 - Introduction to functions
 
-Please follow along at [jsbin](http://jsbin.com/yazuho/)
+Please follow along at [jsbin](http://jsbin.com/yazuho/edit?js,output)
 
 ## Part 2 - Map, filter, reduce
 
@@ -163,6 +163,7 @@ div(
 ```
 
 ## Part 4 - Advanced functions
+
 ### Function factories
 Functions that return other functions.
 ```javascript
@@ -179,8 +180,40 @@ const twoAdder = makeAdder(2);
 //
 //twoAdder(8) === 10
 ```
+
+### Composition
+Composition chains together functions to create a new function. The compose function is a function factory.
+f ∘ g = f(g(x))
+
+```javascript
+const result = add1(square(5))
+const addToSquare = x => compose(add, square)(x)
+result === addToSquare(5) === 26 // > true
+
+// Simple implementation (supports only two functions)
+function compose(f, g) {
+  return function(...args) {
+    return f(g(...args))
+  }
+}
+
+// Advanced implementation (supports arbitrary number of functions)
+function compose(...funcs) {
+  return (...args) => {
+    if (funcs.length === 0) {
+      return args[0]
+    }
+
+    const last = funcs[funcs.length - 1]
+    const rest = funcs.slice(0, -1)
+
+    return rest.reduceRight((composed, f) => f(composed), last(...args))
+  }
+}
+```
+
 ### Partial application
-It is possible to partiall apply arguments to functions.
+It is possible to partially apply arguments to functions.
 ```javascript
 function addOne() {
       return this + 1;
