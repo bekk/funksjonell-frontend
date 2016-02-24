@@ -134,7 +134,7 @@ This could also be done using reduce:
 
 ## Part 3 - Case study: Making HTML with functions
 
-[Tasks](https://jsbin.com/yesuwi/edit?js,output)
+[Tasks](https://jsbin.com/pigadel/edit?js,output)
 
 In this assignment you will create a simple web app by using functions to create descriptions of HTML elements (inspired by [Hyperscript](https://github.com/dominictarr/hyperscript)). We will use a similar approach as React where HTML elements are represented by plain JavaScript objects, and only later transformed to actual HTML. This way we can construct an entire app just using nested functions that return objects representing the element itself and all its child elements. In the assignments you will find a function for creating these descriptions along with helper functions for creating the most common elements, like div(), ul() etc.
 
