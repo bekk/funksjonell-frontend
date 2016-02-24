@@ -50,7 +50,7 @@ function removeOddIndicesFor(array) {
 //removeOddIndicesFor([0,1,2,3,4]) === [0,2,4]
 ```
 
-But for-loops involve alot of manual steps, which makes it error prone. Thankfully, javascript have a `filter` function on `Array.prototype`. For each iteration of map it invokes the function with three arguments: the current value, the current index, the entire collection. So we can write it like this instead:
+But for-loops involve alot of manual steps, which makes it error prone. Thankfully, javascript have a `filter` function on `Array.prototype`. For each iteration of filter it invokes the function with three arguments: the current value, the current index, the entire collection. So we can write it like this instead:
 
 #### Look how clean it is using Array.filter
 ```javascript
