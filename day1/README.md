@@ -14,7 +14,9 @@ Remember, we are here to help you learn. Do not hesitate to ask questions. We wi
 
 ## Part 1 - Introduction to functions
 
-Please follow along at [jsbin](http://jsbin.com/yazuho/edit?js,output)
+Basic functions [jsbin](http://jsbin.com/yazuho/edit?js,output)
+Basic functions in ES6 [jsbin](http://jsbin.com/ziyuju/edit?js,console)
+Other features in ES6 [jsbin](http://jsbin.com/vomeri/edit?js,console)
 
 ## Part 2 - Map, filter, reduce
 
