@@ -15,7 +15,9 @@ Remember, we are here to help you learn. Do not hesitate to ask questions. We wi
 ## Part 1 - Introduction to functions
 
 Basic functions [jsbin](http://jsbin.com/yazuho/edit?js,output)
+
 Basic functions in ES6 [jsbin](http://jsbin.com/ziyuju/edit?js,console)
+
 Other features in ES6 [jsbin](http://jsbin.com/vomeri/edit?js,console)
 
 ## Part 2 - Map, filter, reduce
@@ -23,6 +25,11 @@ Other features in ES6 [jsbin](http://jsbin.com/vomeri/edit?js,console)
 ## Introduction to some jargon
 
 Functional programmers love to talk fancy about all the cool features that they use, so we should explain some of them.
+
+### Imperative vs. declarative
+Imperative means telling "this is how you do it". For example in order to find the largest number in a list, you will go through the list at index n in the list, check if this value is larger than the previous largest, update the largest value it is and stop when n is equal to the list length minus 1. This type of programming is prone to errors like "off by one", and requires more code than declarative solutions.
+
+Declarative means declaring what we want to achieve, rather than how. By using well-named functions, we can clearly describe our intents through well-established and tested abstractions. Instead of looping through a list, we would call a function findLargest(list) that return the largest number. This function can then again be implemented with other functions, like Array.reduce, which we will cover last in this part.
 
 ### First-class functions
 Unlike Java, functions in JavaScript can be put in variables. They can also be passed as arguments to other functions, so that the function can delegate some of its behavior to the arguments. Functions can even return functions! We call them function factories, because the create functions. All of this means that functions are first-class citizens, treated like every other part of the language, and not like some special bastards.
