@@ -31,6 +31,8 @@ Imperative means telling "this is how you do it". For example in order to find t
 
 Declarative means declaring what we want to achieve, rather than how. By using well-named functions, we can clearly describe our intents through well-established and tested abstractions. Instead of looping through a list, we would call a function findLargest(list) that return the largest number. This function can then again be implemented with other functions, like Array.reduce, which we will cover last in this part.
 
+This part will cover the built-in functions map, filter and reduce that Array provides. We will first show you how they look in an imperative style, and then using a declarative style.
+
 ### First-class functions
 Unlike Java, functions in JavaScript can be put in variables. They can also be passed as arguments to other functions, so that the function can delegate some of its behavior to the arguments. Functions can even return functions! We call them function factories, because the create functions. All of this means that functions are first-class citizens, treated like every other part of the language, and not like some special bastards.
 
