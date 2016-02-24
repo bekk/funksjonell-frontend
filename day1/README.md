@@ -211,7 +211,7 @@ function compose(...funcs) {
 ```
 
 ### Partial application
-It is possible to partially apply arguments to functions. Then we get a new function with these partial arguments "pre-filled", so that we can call the function with only the rest of the arguments. This can be achieved using the built-in function "bind" that exists on every function in JavaScript.
+It is possible to partially apply arguments to functions. Then we get a new function with these partial arguments "pre-filled", so that we can call the function with only the rest of the arguments. This can be achieved using the built-in function "bind" that exists on every function in JavaScript. Note that bind takes a context as the first argument. The value of the context is accessible in the function with the keyword "this". You can also pass "null" if you don't need to bind "this".
 
 ```javascript
 function addOne() {
