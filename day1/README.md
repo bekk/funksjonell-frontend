@@ -69,7 +69,7 @@ Map is a higher-order function that takes an array and a function, and returns a
 ```javascript
 function squareFor(...numbers) {
       var newArr = [];
-      for (var i = 0; i < rest.length; i++) {
+      for (var i = 0; i < numbers.length; i++) {
         newArr.push(numbers[i] * numbers[i]);
       }
       return newArr;
