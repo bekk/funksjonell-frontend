@@ -175,7 +175,7 @@ const twoAdder = makeAdder(2);
 //twoAdder = function(arg2){
 //              return 2 + arg2;
 //      }
-//
+
 //twoAdder(8) === 10
 ```
 
@@ -222,7 +222,7 @@ const fourPlusOne = addOne.bind(4)
 //fourPlusOne = function(){
 //              return 4 + 1;
 //      }
-//
+
 //fourPlusOne() === 5
 
 function plus(a, b) {
@@ -231,6 +231,10 @@ function plus(a, b) {
 // Now, let's bind the first of these parameters, `a`, to
 // the value 2.
 const addTwo = plus.bind(null, 2);
+//addTwo = function(b){
+//              return 2 + b;
+//      }
+
 //addTwo(2) === 4
 ```
 ### Currying
