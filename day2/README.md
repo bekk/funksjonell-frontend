@@ -41,7 +41,7 @@ JsBin: [Live example](http://jsbin.com/deluji/20/edit?html,js,output)
 ### Assignment 1 - Stopwatch:
 In this assignment we will warm up to React by creating a simple stopwatch application.
 
-JsBin [Assignment]()
+JsBin [Assignment](http://jsbin.com/yevegat/6/edit?css,js,output)
 
 JsBin [Solution](http://jsbin.com/bificad/96/edit?css,js,output)
 
