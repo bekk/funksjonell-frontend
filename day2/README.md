@@ -46,7 +46,9 @@ JsBin [Assignment](http://jsbin.com/yevegat/6/edit?css,js,output)
 JsBin [Solution](http://jsbin.com/bificad/96/edit?css,js,output)
 
 #### 1.1 - Stopwatch layout
-First we need to setup the layout for the stopwatch application. In the React component ** `<Stopwatch />` `render()`.** insert the HTML
+First we need to setup the basic layout for the stopwatch application. The first assignment is to implement the `render()` method of the ** `<Stopwatch />`** component. The layout should look something like this:
+
+![Layout](http://imgur.com/FWbLl5O.png)
 
 
 #### 1.2 - Set and display initial time
