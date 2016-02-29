@@ -5,11 +5,11 @@ Welcome to day 1 of the course functional programming in JavaScript with React a
 
 
 ## Part 1 - React warm up
-This part will give an basic introduction to React
+This part will give a basic introduction to React. First we will go trough some code examples and then we will get our hands dirty by creating a small Stopwatch application.
 
 ### Hello world
 
-Plain Javascript
+**Plain Javascript**
 ```javascript
 var HelloWorld = React.createClass({
   displayName: 'HelloWorld',
@@ -24,9 +24,9 @@ ReactDOM.render(React.createElement(HelloWorld), document.getElementById('app'))
 ```
 JsBin: [Live example](http://jsbin.com/bejifoj/8/edit?js,output)
 
-With JSX:
+**Using JSX syntax:**
 ```javascript
-var App = React.createClass({
+var HelloWorld = React.createClass({
   render() {
       return (
         <div> Hello world </div>
@@ -34,9 +34,112 @@ var App = React.createClass({
   }
 });
 
-ReactDOM.render(<App/>, document.getElementById('main'));
+ReactDOM.render(<HelloWorld/>, document.getElementById('main'));
 ```
 JsBin: [Live example](http://jsbin.com/deluji/20/edit?html,js,output)
+
+
+**Functional component:**
+```javascript
+var HelloWorld = () => (
+  return (
+    <div>Hello world</div>
+  );
+);
+
+ReactDOM.render(<HelloWorld />, mountNode);
+```
+
+### Transferring Props
+**Component:**
+```javascript
+var Hello = React.createClass({
+  render() {
+    return (
+      <div>Hello { this.props.message }</div>
+    );
+  }
+});
+
+ReactDOM.render(<Hello message={'World!'} />, mountNode);
+```
+
+**Functional component:**
+```javascript
+var Hello = (props) => {
+  return (
+    <div>Hello { props.message }</div>
+  );
+}
+
+ReactDOM.render(<Hello message={'World!'} />, mountNode);
+```
+
+### Render a list of items
+```javascript
+var moviestars = [
+  'Leonardo DiCaprio',
+  'Matt Damon',
+  'Michael Fassbender',
+  'Cate Blanchett',
+];
+
+var Moviestars = React.createClass({
+  render() {
+    var actors = this.props.actors.map((actor) => {
+      return <li>{ actor }</li>
+    });
+
+    return (
+      <ul>{ actors }</ul>
+    );
+  }
+});
+
+ReactDOM.render(<Moviestars actors={ moviestars } />, mountNode);
+
+```
+
+### Handle click event
+```javascript
+var HelloClick = React.createClass({
+  printMsg() {
+      console.log('Hello world');
+  },
+
+  render() {
+    <button onClick={ this.printMsg }>
+      Click me!
+    </button>
+  }
+}):
+```
+
+### Working with State
+```javascript
+var Counter = React.createClass({
+  getInitialState() {
+    return {
+      count: 0
+    }
+  },
+
+  addOne() {
+      this.setState({ count: this.state.count + 1 });
+  },
+
+  render() {
+    return (
+        <div>
+          { this.state.count }
+          <button onClick={this.addOne}>Add</div>
+        </div>
+    );
+  }
+});
+```
+
+
 
 ### Assignment 1 - Stopwatch:
 In this assignment we will warm up to React by creating a simple stopwatch application.
