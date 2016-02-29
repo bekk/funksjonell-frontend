@@ -117,7 +117,7 @@ var HelloClick = React.createClass({
 }):
 ```
 
-** Functional component **
+**Functional component**
 ```javascript
 function printMsg() {
     console.log('Hello world');
@@ -158,6 +158,9 @@ var Counter = React.createClass({
 });
 ```
 
+### Lifecycle methods
+[Lifecycle docs](https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods)
+
 
 
 ### Assignment 1 - Stopwatch:
@@ -184,16 +187,6 @@ Create a *Functional component* `<Lap />` to represent each lap time. The Lap co
 
 #### 1.5 - Show best round time
 Extra
-
-
-### Lifecycle methods
-[Lifecycle docs](https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods)
-
-
-### State
-
-
-
 
 ## Part 2 - Calendar application
 ### Setup Node
