@@ -108,11 +108,30 @@ var HelloClick = React.createClass({
   },
 
   render() {
-    <button onClick={ this.printMsg }>
-      Click me!
-    </button>
+    return (
+      <button onClick={ this.printMsg }>
+        Click me!
+        </button>
+    );
   }
 }):
+```
+
+** Functional component **
+```javascript
+function printMsg() {
+    console.log('Hello world');
+},
+
+var HelloClick = (props) => {
+  return (
+    <button onClick={ props.onClick }>
+      Click me!
+    </button>
+  );
+}:
+
+ReactDOM.render(<HelloClick onClick={ printMsg } />, mountNode);
 ```
 
 ### Working with State
