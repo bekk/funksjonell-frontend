@@ -85,3 +85,6 @@ const actorsWithOscars = [
 In this part we will start to setup the layout for a Memory game.
 
 [Solution example](http://jsbin.com/yetiqok/179/edit?css,js,output)
+
+
+[Simple game](http://jsbin.com/yetiqok/214/edit?js,output)
