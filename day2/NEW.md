@@ -105,6 +105,8 @@ Extra:
 ## Part 2 - Memory game
 In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game.
 
+[Result](http://output.jsbin.com/yetiqok)
+
 ```javascript
 const data = {
   cards: [
