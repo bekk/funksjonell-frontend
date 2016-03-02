@@ -88,6 +88,8 @@ const actorsWithOscars = [
 
 * Show the actor currently holding the highest number of Oscars. [Solution](http://jsbin.com/sojejoz/42/edit?js,console,output)
 
+* Show the total amount of Oscars and actors e.g. `6 actors with a total of 13 oscars`
+
 Extra:
 * Show a list of how many actors that have a given number of Oscars. e.g `2 has 1 Oscar `
 * Create a list Grouped by number of oscars
