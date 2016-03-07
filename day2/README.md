@@ -326,7 +326,6 @@ const actorsWithOscarsExtended = [
 ## Part 2 - Memory game
 In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: [GOAL OF THE DAY](http://output.jsbin.com/yetiqok)
 
-Rules:
 1. A click on a `<Card>` opens it
 2. A click on a second `<Card>` opens it
 3. If two `<Card>` tiles matches, they stay open
