@@ -10,10 +10,53 @@ After we have warmed up with some React components, we will start to work on a c
 
 Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. If a part is difficult, please tell us, or just skip it.
 
+## Recap from day 1 - Map, Filter and reduce
+You can find the material from day 1 [here](https://github.com/bekk/funksjonell-frontend/tree/react/day1).
+
+### Filter
+Filter is a higher-order function that takes an array and a predicate function, and returns a new array with the values that the predicate function returns true for. An example is to remove all objects in an array with odd index.
+
+```javascript
+function removeOddIndices(array) {
+  return array.filter((val, index, collection) => index % 2 === 0);
+}
+
+//removeOddIndices([0,1,2,3,4]) === [0,2,4]
+```
+
+### Map
+Map is a higher-order function that takes an array and a function, and returns a new array with the given function applied to each element of the original array. An example is to square all element in a list.
+
+```javascript
+function square(numbers) {
+  return numbers.map((value, index, collection) => value * value);
+}
+
+//square([2,3,4]) === [4,9,16]
+```
+
+### Reduce
+Reduce applies a function against an accumulator and each value of the array to reduce it to a single value. Reduce is different from map and filter in that it returns a value rather than a collection. However, the value could also be a collection.
+
+
+```javascript
+  function sum(arr) {
+    return arr.reduce((acc, value, index, collection) =>{
+      // What is returned in this function is used as `acc` for
+      // the next iteration
+      return acc + value;
+    }, 0);
+    // 0 is the starting value for `acc`
+
+    // What we return on the last iteration is the result of
+    // the reduce.
+  }
+```
 
 ## Part 1 - React warm up
+Here are some basic React examples.
 
-#### Render a component with props:
+#### Render a component with props
 ```javascript
 
 const Hello = (props) => {
@@ -27,7 +70,7 @@ const Hello = (props) => {
 ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
 ```
 
-#### Composition:
+#### Composition
 ```javascript
 const HelloFruit = () => {
   return (
@@ -40,7 +83,7 @@ const HelloFruit = () => {
 }
 ```
 
-#### List:
+#### List
 ```javascript
 const Fruits = () => {
   const fruitList = ['banana', 'apple', 'orange'];
@@ -53,7 +96,7 @@ const Fruits = () => {
 }
 ```
 
-#### IF
+#### If
 ```javascript
 const Fruit = (props) => {
   if (props.name === 'banana') {
@@ -93,9 +136,9 @@ const Clickable = (props) => {
 
 ### Styling
 ```javascript
-const SomeComponent = (props) => {
+const SomeComponent = () => {
   return (
-    <div className="some-css-class"> // Use css class
+    <div className="some-css-class"> // Use CSS class
       <div style={{ fontSize: '20px' }}> Some text </div> // inline styling
     </div>
   )
@@ -104,7 +147,7 @@ const SomeComponent = (props) => {
 ```
 
 ### Tasks:
-We will use `JsBin` as our online editor for the day. If you want you can start on the assignment by cloning this bin (**[boilerplate](http://jsbin.com/yoceve/12/edit?js,output)**) or create your own from scratch.
+We will use `JsBin` as our online editor for the day. Start on the assignment by cloning this bin (**[clone me!](http://jsbin.com/yoceve/12/edit?js,output)**).
 
 * Task 1 - Create and render a component `<Actor>` that displays `"Leonardo DeCaprio"`.
 
