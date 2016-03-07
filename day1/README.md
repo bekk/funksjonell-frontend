@@ -78,7 +78,7 @@ Map is a higher-order function that takes an array and a function, and returns a
 #### How it looks with a traditional for-loop
 
 ```javascript
-function squareFor(...numbers) {
+function squareFor(numbers) {
       var newArr = [];
       for (var i = 0; i < numbers.length; i++) {
         newArr.push(numbers[i] * numbers[i]);
@@ -86,15 +86,15 @@ function squareFor(...numbers) {
       return newArr;
     }
 
-//squareFor(2,3,4) === [4,9,16]
+//squareFor([2,3,4]) === [4,9,16]
 ```
 #### How it looks using Array.map
 ```javascript
-function square(...numbers) {
+function square(numbers) {
       return numbers.map((value, index, collection) => value * value);
     }
 
-//square(2,3,4) === [4,9,16]
+//square([2,3,4]) === [4,9,16]
 ```
 
 #### [Tasks](http://jsbin.com/tetevo/edit?js,console)
@@ -222,19 +222,9 @@ function compose(...funcs) {
 ```
 
 ### Partial application
-It is possible to partially apply arguments to functions. Then we get a new function with these partial arguments "pre-filled", so that we can call the function with only the rest of the arguments. This can be achieved using the built-in function "bind" that exists on every function in JavaScript. Note that bind takes a context as the first argument. The value of the context is accessible in the function with the keyword "this". You can also pass "null" if you don't need to bind "this".
+It is possible to partially apply arguments to functions. Then we get a new function with these partial arguments "pre-filled", so that we can call the function with only the rest of the arguments. This can be achieved using the built-in function "bind" that exists on every function in JavaScript. Note that bind takes a context as the first argument. The value of the context is accessible in the function with the keyword "this". In this course we do not need to worry about the context, so we can always pass null as the first parameter when you use bind.
 
 ```javascript
-function addOne() {
-      return this + 1;
-}
-
-const fourPlusOne = addOne.bind(4)
-//fourPlusOne = function(){
-//              return 4 + 1;
-//      }
-
-//fourPlusOne() === 5
 
 function plus(a, b) {
       return a + b;
