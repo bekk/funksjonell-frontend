@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Welcome to day 2 of the course functional programming in JavaScript with React and Redux. Today is all about getting familiar with React to create graphical user interfaces. We will combine react with some of the functional programming concepts we learned from day 1. Facebook open sourced React in 2013 and it has since then become one of the most popular libraries for creating the view of web applications.
+Welcome to day 2 of the course functional programming in JavaScript with React and Redux. Today is all about getting familiar with React to create graphical user interfaces. We will combine React with some of the functional programming concepts we learned on day 1. Facebook open sourced React in 2013 and it has since then become one of the most popular libraries for creating the view of web applications.
 
 The day will start with an introduction to React. In this part, we will be working on different assignments to get familiar with some of the core concepts of React. Will start with some basics and add more complexity on the way.
 
-After we have been familiarized with React and created some components  we will start to work on a case assignment. The case is to create a Memory like game. Today we will work on the view logic and on the last day, we will work to connect everything together. Memory is the game where you have a number of card pairs facing down on a board.  On each card, there is a picture, and the job is to find all the matching pairs using the lowest amount of turns. A turn plays out by flipping two cards of the player’s choice, if the two cards flipped has the same image, these cards are removed from the board, if not the two cards are turned back on its back. The challenge is to memorize the location of flipped cards and remove all the pairs from the board as fast as possible.
+After we have warmed up withsome React components, we will start to work on a case assignment. The case is to create a Memory like game. Today we will work on the view logic and on the last day, we will work on putting everything together. Memory is the game where you have a number of card pairs facing down on a board.  On each card, there is a picture, and the job is to find all the matching pairs using the fewest number of turns. A turn plays out by flipping two cards of the player’s choice, if the two cards flipped has the same image, these cards are removed from the board, if not the two cards are turned back on its back. The challenge is to memorize the location of flipped cards and remove all the pairs from the board as fast as possible.
 
 Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. If a part is difficult, please tell us, or just skip it.
 
@@ -77,7 +77,7 @@ const actorList = [
 ];
 ```
 
-* change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor. [Solution](http://jsbin.com/sojejoz/24/edit?js,output)
+* Change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor. [Solution](http://jsbin.com/sojejoz/24/edit?js,output)
 
 ```javascript
 const actorsWithOscars = [
@@ -249,14 +249,14 @@ const data = {
 const cardBacksideUrl = "http://lorempixel.com/image_output/abstract-q-g-200-200-10.jpg";
 ```
 ### Card component
-We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `backside up`, `image side up` and `matched`.
+We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `face up`, `face down` and `matched`. 
 
 Tasks:
-* Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
+* Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now. 
 ```
 <div className="card">Hello card</div>
 ```
-* Have the `<Card>` component render a image from the URL passed in from `props.data.item`.
+* Let the `<Card>` component render an image from the URL passed in from `props.data.item`.
 
 * When `props.data.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `data` object.
 
@@ -291,7 +291,7 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Read about `Proptypes` in functional stateless components and add this to all of the components used in the game.
 
-* Read about `key` attribute and add this where it is neaded.
+* Read about `key` attribute and add this where it is needed.
 
 
 
