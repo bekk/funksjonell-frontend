@@ -10,7 +10,7 @@ After we have warmed up with some React components, we will start to work on a c
 
 Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. If a part is difficult, please tell us, or just skip it.
 
-## Recap from day 1 - Map, Filter and reduce
+## Summary from day 1 - Map, Filter and reduce
 You can find the material from day 1 [here](https://github.com/bekk/funksjonell-frontend/tree/react/day1).
 
 ### Filter
@@ -324,9 +324,16 @@ const actorsWithOscarsExtended = [
 
 
 ## Part 2 - Memory game
-In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game.
+In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: [GOAL OF THE DAY](http://output.jsbin.com/yetiqok)
 
-[Solution example](http://output.jsbin.com/yetiqok)
+Rules:
+1. A click on a `<Card>` opens it
+2. A click on a second `<Card>` opens it
+3. If two `<Card>` tiles matches, they stay open
+4. If a third `<Card>` is clicked and there are two other non matching `<Cards>` open, the other are closed.
+5. Every click increments the `number of moves`
+6. The game is finished when there are no more `<Card>` to match
+
 
 ```javascript
 const data = {
@@ -379,11 +386,23 @@ Tasks:
 ### Game component
 Now we will create a `<Game>` component. The game component will be the top level component and will hold the `<Board>`, `<MoveCounter>` and `<Highscore>` components
 
+* Create a `<Game>` component and pass `data` as a prop.
+
+* Move the `<Board>` component inside the `<Game>` component and pass the correct props.
+
 ### MoveCounter
-// todo
+
+* Create a `<MoveCounter>` and insert it inside the `<Game>` component.
+
+* Pass `data.rounds` as props and display the current score
 
 ### Highscore component
-// todo
+
+* Create a `<Highscore>` component and insert it inside the `Game` component
+
+* Display the highscore from `data.highscore`
+
+// todo add a highscore list
 
 
 ### Extra
@@ -396,51 +415,6 @@ Now we will create a `<Game>` component. The game component will be the top leve
 * Read about `key` attribute and add this where it is needed.
 
 
-
 [Solution example](http://jsbin.com/yetiqok/179/edit?css,js,output)
 
 [Simple game](http://jsbin.com/yetiqok/214/edit?js,output)
-
-
-
-
-
-
-
-
-### Mapping and filtering
-
-Samme som over, vise kun dem med 2+ Oscars.
-Gjøre om "moviestars" til array av objekter med name og #oscars.
-
-### Komposisjon: Bruke <Actor> i <Moviestars>
-
-## Memory
-
-Spillstruktur:
-
-{
-  tiles: [{ type: 'url', revealed: false, matched: false }, ...],
-  reveals: 0,
-  highscore: 999
-}
-
-1. Lage <Tile> - vise/skjule avhengig av flagg, inneholde bilde, alert() med onClick - her hooker vi opp flipTile senere
-2. Lage <Board> - bruker <Tile>, mapper over array
-3. Lage <MoveCounter>
-4. Lage <Game> som toppnivåwrapper
-5. Lage <Highscore>
-
-
-Extra:
-* Send inn funksjon til en Tile som endrer gamestate og rendrer på nytt
-*
-*
-
----
-
-1. Klikk på Tile åpner den
-2. Klikk på enda en Tile åpner denne også
-3. Håndtere at man kan ikke kan vise tre samtidig (avslutt tur-knapp eller skjul en vist Tile)
-4. Hvis to Tiles matcher forblir de åpne
-5. Hvert klikk inkrementerer antall moves
