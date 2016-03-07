@@ -116,18 +116,115 @@ const actorsWithOscars = [
 * In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`
 
 #### Extra:
+
+* Create a `<oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<actor>` component
+
+* Create a `<MoviesWithOscarActors>` component and a `<movie>` component. Render a combined list of all the movie titles from the actor list. Sort by year.
+
+
+```javascript
+const actorsWithOscarsExtended = [
+    {
+      name: 'Jack Nicholson',
+      oscars: 3,
+      nominations: 12,
+      awards: [
+        {
+          title: 'One flew over the cuckoo/''s nest',
+          year: '1975'  
+        },
+        {
+          title: 'As Good as It Gets',
+          year: '1997'  
+        },
+        {
+          title: 'Terms of Endearment',
+          year: '1983'  
+        },
+      ]
+    },
+    {
+      name: 'Katharine Hepburn',
+      oscars: 4,
+      nominations: 12,
+      awards: [
+        {
+          title: 'Morning Glory',
+          year: '1933'  
+        },
+        {
+          title: 'Guess Who/''s Coming to Dinner',
+          year: '1967'  
+        },
+        {
+          title: 'The Lion in Winter',
+          year: '1968'  
+        },
+        {
+          title: 'On Golden Pond',
+          year: '1981'  
+        },
+      ]
+    },
+    {
+      name: 'Kevin Spacey',
+      oscars: 2,
+      nominations: 2,
+      awards: [
+        {
+          {
+            title: 'American Beauty',
+            year: '1999'  
+          },
+          {
+            title: 'The Usual Suspects ',
+            year: '1995'  
+          }
+        },
+      ]
+    },
+    {
+      name: 'Tom Hanks',
+      oscars: 2,
+      nominations: 5,
+      awards: [
+        {
+          {
+            title: 'Philadelphia',
+            year: '1993'  
+          },
+          {
+            title: 'Forrest Gump',
+            year: '1994'  
+          }
+        },
+      ]
+    },
+    {
+      name: 'Leonardo DeCaprio',
+      oscars: 1,
+      nominations: 6,
+      awards: [
+        {
+          {
+            title: 'The Revenant',
+            year: '2016',  
+          }
+        },
+      ]
+    },
+    {
+      name: 'Johnny Depp',
+      oscars: 0,
+      nominations: 3,
+      awards: []
+    },
+];
+```
+
 * In the list of actors create some kind of visual highlight for the actor with the most Oscars.
 
 * Show a list of how many actors that have a given number of Oscars. e.g `2 actor(s) has 1  Oscar(s) `
-
-* Create a list Grouped by number of Oscars
-```
-One Oscar
-    * Leonardo DeCaprio
-Two Oscars
-    * Kevin Spacey
-    * Tom Hanks
-```
 
 
 ## Part 2 - Memory game
