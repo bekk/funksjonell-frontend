@@ -106,18 +106,13 @@ const SomeComponent = (props) => {
 ### Tasks:
 We will use `JsBin` as our online editor for the day. If you want you can start on the assignment by cloning this bin (**[boilerplate](http://jsbin.com/yoceve/12/edit?js,output)**) or create your own from scratch.
 
-* Create and render a component `<Actor>` that displays `"Leonardo DeCaprio"`.
-[Solution](http://jsbin.com/sojejoz/5/edit?html,js,output)
+* Task 1 - Create and render a component `<Actor>` that displays `"Leonardo DeCaprio"`.
 
-* Add a property `name` to the `<Actor>` component and pass `"Leonardo DeCaprio"` as a property rather than setting the name as a hard coded value.
-[Solution](http://jsbin.com/sojejoz/6/edit?js,output)
+* Task 2 - Add a property `name` to the `<Actor>` component and pass `"Leonardo DeCaprio"` as a property rather than setting the name as a hard coded value.
 
-* Create a new component `<Actors>` that displays 3 actors of your choice. Use the `<Actor>` component for each actor.
-[Solution](http://jsbin.com/sojejoz/12/edit?js,output)
+* Task 3 - Create a new component `<Actors>` that displays 3 hardcoded actors of your choice. Use the `<Actor>` component for each actor.
 
-* Pass the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list using a html `<ul>` element. [Solution](http://jsbin.com/xadawuy/7/edit?js,output)
-
-* In the `<Actors>` component. Render each actor in the list as a `<Actor>` component. [Solution](http://jsbin.com/sojejoz/15/edit?js,output)
+* Task 4 - Pass the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list instead of renderning the hardcoded actors from the previous task.
 
 ```javascript
 const actorList = [
@@ -128,7 +123,7 @@ const actorList = [
 ];
 ```
 
-* Change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor. [Solution](http://jsbin.com/sojejoz/24/edit?js,output)
+* Task 5 -Change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor.
 
 ```javascript
 const actorsWithOscars = [
@@ -158,23 +153,23 @@ const actorsWithOscars = [
     },
 ];
 ```
-* Sort the actors by number of Oscars. [Solution](http://jsbin.com/sojejoz/29/edit?js,output)
+* Task 6 - Sort the actors by number of Oscars.
 
-* Show only Actors with more than 2 Oscars. [Solution](http://jsbin.com/sojejoz/34/edit?js,output)
+* Task 7 - Show only Actors with more than 2 Oscars.
 
-* Show the actor currently holding the highest number of Oscars. Use `reduce` to find the actor. [Solution](http://jsbin.com/sojejoz/42/edit?js,console,output)
+* Task 8 - Show the actor currently holding the highest number of Oscars. Use `reduce` to find the actor.
 
-* In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`. [Solution](http://jsbin.com/goqemu/4/edit?js,output)
+* Task 9 - In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`.
 
 #### Extra:
 
-* Create a `<Oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<Actor>` component. [Solution](http://jsbin.com/jixijo/122/edit?js,output)
+* Task 10 - Create a `<Oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<Actor>` component.
 
-* Create a `<OscarMovies>` component and a `<Movie>` component. Render a list of containing all of the movie titles from the actor `actorsWithOscarsExtended` list. Sort the movies by year. [Solution](http://jsbin.com/caqace/25/edit?js,output)
+* Task 11 - Create a `<OscarMovies>` component and a `<Movie>` component. Render a list of containing all of the movie titles from the actor `actorsWithOscarsExtended` list. Sort the movies by year.
 
-* In the list of actors create some kind of visual highlight for the actor with the most Oscars.
+* Task 12 - In the list of actors create some kind of visual highlight for the actor with the most Oscars.
 
-* Show a list of how many actors that have a given number of Oscars. e.g `2 actor(s) has 1 Oscar(s) `
+* Task 13 - Show a list of how many actors that have a given number of Oscars. e.g `2 actor(s) has 1 Oscar(s) `
 
 ```javascript
 const actorsWithOscarsExtended = [
@@ -270,6 +265,19 @@ const actorsWithOscarsExtended = [
     }
 ];
 ```
+
+### Solutions part 1
+1. [Solution task 1](http://jsbin.com/sojejoz/5/edit?html,js,output)
+2. [Solution task 2](http://jsbin.com/sojejoz/6/edit?js,output)
+3. [Solution task 3](http://jsbin.com/sojejoz/12/edit?js,output)
+4. [Solution task 4](http://jsbin.com/sojejoz/15/edit?js,output)
+5. [Solution task 5](http://jsbin.com/sojejoz/24/edit?js,output)
+6. [Solution task 6](http://jsbin.com/sojejoz/29/edit?js,output)
+7. [Solution task 7](http://jsbin.com/sojejoz/34/edit?js,output)
+8. [Solution task 8](http://jsbin.com/sojejoz/42/edit?js,console,output)
+9. [Solution task 9](http://jsbin.com/goqemu/4/edit?js,output)
+10. [Solution task 10](http://jsbin.com/jixijo/122/edit?js,output)
+11. [Solution task 11](http://jsbin.com/caqace/25/edit?js,output)
 
 
 ## Part 2 - Memory game
