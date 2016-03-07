@@ -64,7 +64,7 @@ const Fruits = () => {
 * Create a new component `<Actors>` that displays 3 actors of your choice using the `<Actor>` component for each actor.
 [Solution](http://jsbin.com/sojejoz/12/edit?js,output)
 
-* Use the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list using a `<ul>` element.
+* Use the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list using a `<ul>` element. [Solution](http://jsbin.com/xadawuy/7/edit?js,output)
 
 * In the `<Actors>` component. Render each actor in the list as a `<Actor>` component. [Solution](http://jsbin.com/sojejoz/15/edit?js,output)
 
@@ -113,112 +113,106 @@ const actorsWithOscars = [
 
 * Show the actor currently holding the highest number of Oscars. Use `reduce` to find the actor. [Solution](http://jsbin.com/sojejoz/42/edit?js,console,output)
 
-* In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`
+* In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars` [Solution](http://jsbin.com/goqemu/4/edit?js,output)
 
 #### Extra:
 
-* Create a `<oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<actor>` component
+* Create a `<Oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<Actor>` component. [Solution](http://jsbin.com/jixijo/122/edit?js,output)
 
-* Create a `<MoviesWithOscarActors>` component and a `<movie>` component. Render a combined list of all the movie titles from the actor list. Sort by year.
-
+* Create a `<MoviesWithOscarActors>` component and a `<movie>` component. Render a combined list of all the movie titles from the actor list. Sort by year. [Solution](http://jsbin.com/caqace/25/edit?js,output)
 
 ```javascript
 const actorsWithOscarsExtended = [
     {
-      name: 'Jack Nicholson',
-      oscars: 3,
-      nominations: 12,
-      awards: [
-        {
-          title: 'One flew over the cuckoo/''s nest',
-          year: '1975'  
-        },
-        {
-          title: 'As Good as It Gets',
-          year: '1997'  
-        },
-        {
-          title: 'Terms of Endearment',
-          year: '1983'  
-        },
-      ]
+        name: 'Jack Nicholson',
+        oscars: 3,
+        nominations: 12,
+        awards: [
+            {
+                title: 'One flew over the cuckoos nest',
+                year: '1975'
+            },
+            {
+                title: 'As Good as It Gets',
+                year: '1997'
+            },
+            {
+                title: 'Terms of Endearment',
+                year: '1983'
+            }
+        ]
     },
     {
-      name: 'Katharine Hepburn',
-      oscars: 4,
-      nominations: 12,
-      awards: [
-        {
-          title: 'Morning Glory',
-          year: '1933'  
-        },
-        {
-          title: 'Guess Who/''s Coming to Dinner',
-          year: '1967'  
-        },
-        {
-          title: 'The Lion in Winter',
-          year: '1968'  
-        },
-        {
-          title: 'On Golden Pond',
-          year: '1981'  
-        },
-      ]
+        name: 'Katharine Hepburn',
+        oscars: 4,
+        nominations: 12,
+        awards: [
+            {
+                title: 'Morning Glory',
+                year: '1933'
+            },
+            {
+                title: 'Guess Whos Coming to Dinner',
+                year: '1967'
+            },
+            {
+                title: 'The Lion in Winter',
+                year: '1968'
+            },
+            {
+                title: 'On Golden Pond',
+                year: '1981'
+            }
+        ]
     },
     {
-      name: 'Kevin Spacey',
-      oscars: 2,
-      nominations: 2,
-      awards: [
-        {
-          {
-            title: 'American Beauty',
-            year: '1999'  
-          },
-          {
-            title: 'The Usual Suspects ',
-            year: '1995'  
-          }
-        },
-      ]
+        name: 'Kevin Spacey',
+        oscars: 2,
+        nominations: 2,
+        awards: [
+            {
+                title: 'American Beauty',
+                year: '1999'
+            },
+            {
+                title: 'The Usual Suspects ',
+                year: '1995'
+            }
+        ]
+    },
+
+    {
+        name: 'Tom Hanks',
+        oscars: 2,
+        nominations: 5,
+        awards: [
+            {
+                title: 'Philadelphia',
+                year: '1993'
+            },
+            {
+                title: 'Forrest Gump',
+                year: '1994'
+            }
+        ]
     },
     {
-      name: 'Tom Hanks',
-      oscars: 2,
-      nominations: 5,
-      awards: [
-        {
-          {
-            title: 'Philadelphia',
-            year: '1993'  
-          },
-          {
-            title: 'Forrest Gump',
-            year: '1994'  
-          }
-        },
-      ]
+        name: 'Leonardo DeCaprio',
+        oscars: 1,
+        nominations: 6,
+        awards: [
+            {
+                title: 'The Revenant',
+                year: '2016'
+            }
+        ]
     },
     {
-      name: 'Leonardo DeCaprio',
-      oscars: 1,
-      nominations: 6,
-      awards: [
-        {
-          {
-            title: 'The Revenant',
-            year: '2016',  
-          }
-        },
-      ]
-    },
-    {
-      name: 'Johnny Depp',
-      oscars: 0,
-      nominations: 3,
-      awards: []
-    },
+        name: 'Johnny Depp',
+        oscars: 0,
+        nominations: 3,
+        awards: []
+    }
 ];
 ```
 
@@ -254,42 +248,54 @@ const data = {
 
 const cardBacksideUrl = "http://lorempixel.com/image_output/abstract-q-g-200-200-10.jpg";
 ```
-### Create a Card component
-We will start to create a `<Card>` component. We will use the `<card>` component to represent one card in the game. A card could have three possible states, `backside up`, `image side up` and `matched`.
+### Card component
+We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `backside up`, `image side up` and `matched`.
 
-* Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text string for now.
+Tasks:
+* Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
 ```
 <div className="card">Hello card</div>
 ```
-* Have the `<Card>` component render an image from the URL passed in from `props.data.item`.
+* Have the `<Card>` component render a image from the URL passed in from `props.data.item`.
 
-* When `props.data.open` is set to `false`, render an image from the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `data` object.
+* When `props.data.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `data` object.
 
 * If `props.data.matched` is set to `true`, add the className `matched` to the card `<div>`
 
-### Create a Board
-Now we will create the `<Board />` component holding the `<Cards />`
+Extra:
 
-* Create and render a <Board /> component and pass `data.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
+* Add an `onClick` listener on the card component that triggers an window.alert.
 
-* Render a `<Card />` for all the card data in `props.cards`
+### Board component
+Next we need to create the `<Board>`. The `<Board>` component will be used as an container for all of the `<Card>` components.
 
-### Create a Game component
-// todo
+Tasks:
+* Create and render a `<Board>` component and pass `data.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
+
+* Render a `<Card>` component for each of the cards in `props.cards`.
+
+### Game component
+Now we will create a `<Game>` component. The game component will be the top level component and will hold the `<Board>`, `<MoveCounter>` and `<Highscore>` components
 
 ### MoveCounter
 // todo
 
-### Highscore
+### Highscore component
 // todo
 
 
-### 6. Extra
-* Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<card>` components. Trigger this on a card click and re-render the game.
+### Extra
+* Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<Card>` components. Trigger this on a card click, and re-render the game to show the new state.
+
+* Extend the `<Highscore>` component to also display a list of the best scores.
+
+* Read about `Proptypes` in functional stateless components and add this to all of the components used in the game.
+
+* Read about `key` attribute and add this where it is neaded.
+
 
 
 [Solution example](http://jsbin.com/yetiqok/179/edit?css,js,output)
-
 
 [Simple game](http://jsbin.com/yetiqok/214/edit?js,output)
 
