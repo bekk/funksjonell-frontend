@@ -1,20 +1,19 @@
-# Day 2 - Playing with React.js
+# Day 2 - React.js
 
 ## Introduction
 
-Welcome to day 2 of the course functional programming in JavaScript with React and Redux. Today is all about getting familiar with React to create graphical user interfaces. We will combine react with some of the functional programming concepts we learned from day 1. Facebook open sourced React in 2013 and it has since then become one of the most popular libraries for creating the view of web applications.
+Welcome to day two of the course functional programming in JavaScript with React and Redux. Today is all about getting familiar with React to create graphical user interfaces. We will combine react with some of the functional programming concepts we learned from day one of the course.
 
-The day will start with an introduction to React. In this part, we will be working on different assignments to get familiar with some of the core concepts of React. Will start with some basics and add more complexity on the way.
+The day will start with an introduction to React. In this part, we will be working on different assignments to get familiar with some of the core functionality of React. Will start with some basic stuff and add more complexity on the way.
 
-After we have been familiarized with React and created some components  we will start to work on a case assignment. The case is to create a Memory like game. Today we will work on the view logic and on the last day, we will work to connect everything together. Memory is the game where you have a number of card pairs facing down on a board.  On each card, there is a picture, and the job is to find all the matching pairs using the lowest amount of turns. A turn plays out by flipping two cards of the player’s choice, if the two cards flipped has the same image, these cards are removed from the board, if not the two cards are turned back on its back. The challenge is to memorize the location of flipped cards and remove all the pairs from the board as fast as possible.
+After we have been familiarized with React and created some components we will start to work on a case assignment. The case is to create a Memory like game. Today we will work on the view logic and on the last day, we will work to connect everything together. Memory is the game where you have a number of card pairs facing down on a board.  On each card, there is a picture, and the job is to find all the matching pairs using the lowest amount of turns. A turn plays out by flipping two cards of the player’s choice, if the two cards flipped has the same image, these cards are removed from the board, if not the two cards are turned back on its back. The challenge is to memorize the location of flipped cards and remove all the pairs from the board as fast as possible.
 
 Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. If a part is difficult, please tell us, or just skip it.
 
 
 ## Part 1 - React warm up
 
-### Some examples
-#### Render a basic component with props:
+#### Render a component with props:
 ```javascript
 
 const Hello = (props) => {
@@ -28,7 +27,7 @@ const Hello = (props) => {
 ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
 ```
 
-#### Nested components:
+#### Composition:
 ```javascript
 const HelloFruit = () => {
   return (
@@ -41,7 +40,7 @@ const HelloFruit = () => {
 }
 ```
 
-#### List example:
+#### List:
 ```javascript
 const Fruits = () => {
   const fruitList = ['banana', 'apple', 'orange'];
@@ -49,22 +48,74 @@ const Fruits = () => {
       return ( <li>{ fruit }</li> );
   });
   return (
-    <ul> { fruits } </ul>
+    <ul> { fruits } </ul> // React will render the <li> elements in fruits
   );
 }
 ```
 
+#### IF
+```javascript
+const Fruit = (props) => {
+  if (props.name === 'banana') {
+    return <Banana />;
+  }
+  else if (props.name === 'orange') {
+    return <Orange />;
+  }
+  return null;
+}
+```
+
+### Children
+```javascript
+const FruitBowl = (props) => {
+  return (
+    <div> { props.children } </div>
+  )
+}
+
+// In some other component
+<FruitBowl>
+  <Orange />
+  <Apple />
+  <Banana />
+</FruitBowl>
+```
+
+### Handle click
+```javascript
+const Clickable = (props) => {
+  return (
+    <button onClick={ props.onClickFn }> Click me! </button>
+  );
+}
+```
+
+### Styling
+```javascript
+const SomeComponent = (props) => {
+  return (
+    <div className="some-css-class"> // Use css class
+      <div style={{ fontSize: '20px' }}> Some text </div> // inline styling
+    </div>
+  )
+}
+
+```
+
 ### Tasks:
+We will use `JsBin` as our online editor for the day. If you want you can start on the assignment by cloning this bin (**[boilerplate](http://jsbin.com/yoceve/12/edit?js,output)**) or create your own from scratch.
+
 * Create and render a component `<Actor>` that displays `"Leonardo DeCaprio"`.
 [Solution](http://jsbin.com/sojejoz/5/edit?html,js,output)
 
-* Add a property `name` to the `<Actor>` component and pass `Leonardo DeCaprio` as a property rather than setting the name as a hard coded value.
+* Add a property `name` to the `<Actor>` component and pass `"Leonardo DeCaprio"` as a property rather than setting the name as a hard coded value.
 [Solution](http://jsbin.com/sojejoz/6/edit?js,output)
 
-* Create a new component `<Actors>` that displays 3 actors of your choice using the `<Actor>` component for each actor.
+* Create a new component `<Actors>` that displays 3 actors of your choice. Use the `<Actor>` component for each actor.
 [Solution](http://jsbin.com/sojejoz/12/edit?js,output)
 
-* Use the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list using a `<ul>` element. [Solution](http://jsbin.com/xadawuy/7/edit?js,output)
+* Pass the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list using a html `<ul>` element. [Solution](http://jsbin.com/xadawuy/7/edit?js,output)
 
 * In the `<Actors>` component. Render each actor in the list as a `<Actor>` component. [Solution](http://jsbin.com/sojejoz/15/edit?js,output)
 
@@ -77,7 +128,7 @@ const actorList = [
 ];
 ```
 
-* change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor. [Solution](http://jsbin.com/sojejoz/24/edit?js,output)
+* Replace the `actorList` with the `actorsWithOscars` list bellow. Do the necessary changes to show the name and number of Oscars for each actor. [Solution](http://jsbin.com/sojejoz/24/edit?js,output)
 
 ```javascript
 const actorsWithOscars = [
@@ -113,13 +164,17 @@ const actorsWithOscars = [
 
 * Show the actor currently holding the highest number of Oscars. Use `reduce` to find the actor. [Solution](http://jsbin.com/sojejoz/42/edit?js,console,output)
 
-* In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars` [Solution](http://jsbin.com/goqemu/4/edit?js,output)
+* In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`. [Solution](http://jsbin.com/goqemu/4/edit?js,output)
 
 #### Extra:
 
 * Create a `<Oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<Actor>` component. [Solution](http://jsbin.com/jixijo/122/edit?js,output)
 
-* Create a `<MoviesWithOscarActors>` component and a `<movie>` component. Render a combined list of all the movie titles from the actor list. Sort by year. [Solution](http://jsbin.com/caqace/25/edit?js,output)
+* Create a `<OscarMovies>` component and a `<Movie>` component. Render a list of containing all of the movie titles from the actor `actorsWithOscarsExtended` list. Sort the movies by year. [Solution](http://jsbin.com/caqace/25/edit?js,output)
+
+* In the list of actors create some kind of visual highlight for the actor with the most Oscars.
+
+* Show a list of how many actors that have a given number of Oscars. e.g `2 actor(s) has 1 Oscar(s) `
 
 ```javascript
 const actorsWithOscarsExtended = [
@@ -216,10 +271,6 @@ const actorsWithOscarsExtended = [
 ];
 ```
 
-* In the list of actors create some kind of visual highlight for the actor with the most Oscars.
-
-* Show a list of how many actors that have a given number of Oscars. e.g `2 actor(s) has 1  Oscar(s) `
-
 
 ## Part 2 - Memory game
 In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game.
@@ -253,9 +304,7 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 
 Tasks:
 * Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
-```
-<div className="card">Hello card</div>
-```
+
 * Have the `<Card>` component render a image from the URL passed in from `props.data.item`.
 
 * When `props.data.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `data` object.
