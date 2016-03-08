@@ -332,7 +332,7 @@ const actorsWithOscarsExtended = [
 
 
 ## Part 2 - Memory game
-In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: [GOAL OF THE DAY](http://output.jsbin.com/yetiqok)
+In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/282)**
 
 1. A click on a `<Card>` opens it
 2. A click on a second `<Card>` opens it
@@ -344,30 +344,32 @@ In this part, we will start to setup the view logic of the Memory game. We have 
 
 ```javascript
 const data = {
-  cards: [
-    { item: "http://lorempixel.com/200/200/cats/1/", matched: false, open: true},
-    { item: "http://lorempixel.com/200/200/cats/1/", matched: false, open: false},
-    { item: "http://lorempixel.com/200/200/cats/2/", matched: false, open: false},
-    { item: "http://lorempixel.com/200/200/cats/2/", matched: false, open: false},
-    { item: "http://lorempixel.com/200/200/cats/3/", matched: false, open: false},
-    { item: "http://lorempixel.com/200/200/cats/3/", matched: false, open: false},
-    { item: "http://lorempixel.com/200/200/cats/4/", matched: false, open: true},
-    { item: "http://lorempixel.com/200/200/cats/4/", matched: false, open: true},
-    { item: "http://lorempixel.com/200/200/cats/5/", matched: true, open: true},
-    { item: "http://lorempixel.com/200/200/cats/5/", matched: true, open: true},
-    { item: "http://lorempixel.com/200/200/cats/6/", matched: true, open: true},
-    { item: "http://lorempixel.com/200/200/cats/6/", matched: true, open: true},
-  ],
-  rounds: 10,
-  highscore: 0,
+    cards: [
+        { item: 'http://lorempixel.com/200/200/cats/1/', matched: false, open: false},
+        { item: 'http://lorempixel.com/200/200/cats/6/', matched: true, open: true},
+        { item: 'http://lorempixel.com/200/200/cats/4/', matched: false, open: false},
+        { item: 'http://lorempixel.com/200/200/cats/5/', matched: true, open: true},
+        { item: 'http://lorempixel.com/200/200/cats/2/', matched: false, open: false},
+        { item: 'http://lorempixel.com/200/200/cats/2/', matched: false, open: false},
+        { item: 'http://lorempixel.com/200/200/cats/1/', matched: false, open: true},
+        { item: 'http://lorempixel.com/200/200/cats/4/', matched: false, open: true},
+        { item: 'http://lorempixel.com/200/200/cats/3/', matched: false, open: false},
+        { item: 'http://lorempixel.com/200/200/cats/6/', matched: true, open: true},
+        { item: 'http://lorempixel.com/200/200/cats/3/', matched: false, open: false},
+        { item: 'http://lorempixel.com/200/200/cats/5/', matched: true, open: true},
+    ],
+    rounds: 10,
+    highscore: 0
 };
 
 const cardBacksideUrl = "http://lorempixel.com/image_output/abstract-q-g-200-200-10.jpg";
 ```
+
 ### Card component
 We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `face up`, `face down` and `matched`.
 
-Tasks:
+**Start in this JsBin: [Clone me and starte here](http://jsbin.com/sujekun/9/edit?js,output)**
+
 * Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
 ```
 <div className="card">Hello card</div>
@@ -378,14 +380,11 @@ Tasks:
 
 * If `props.data.matched` is set to `true`, add the className `matched` to the card `<div>`
 
-Extra:
-
 * Add an `onClick` listener on the card component that triggers an window.alert.
 
 ### Board component
 Next we need to create the `<Board>`. The `<Board>` component will be used as an container for all of the `<Card>` components.
 
-Tasks:
 * Create and render a `<Board>` component and pass `data.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
 
 * Render a `<Card>` component for each of the cards in `props.cards`.
@@ -396,6 +395,8 @@ Now we will create a `<Game>` component. The game component will be the top leve
 * Create a `<Game>` component and pass `data` as a prop.
 
 * Move the `<Board>` component inside the `<Game>` component and pass the correct props.
+
+* Create a header `<h1>` with a game title
 
 ### MoveCounter
 
@@ -409,19 +410,20 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Display the highscore from `data.highscore`
 
-// todo add a highscore list
-
+## Solution
+[Solution example](http://jsbin.com/yetiqok/282)
 
 ### Extra
+* Add a key `gameComplete` to the `data` object and create a restart button and some game won graphics.
+
+* Add a highscore list of `names` and `scores` to the `data` object and create a render a list of the best players.
+
 * Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<Card>` components. Trigger this on a card click, and re-render the game to show the new state.
 
-* Extend the `<Highscore>` component to also display a list of the best scores.
+### Extra Extra
 
 * Read about `Proptypes` in functional stateless components and add this to all of the components used in the game.
 
 * Read about `key` attribute and add this where it is needed.
 
-
-[Solution example](http://jsbin.com/yetiqok/179/edit?css,js,output)
-
-[Simple game](http://jsbin.com/yetiqok/214/edit?js,output)
+EOF
