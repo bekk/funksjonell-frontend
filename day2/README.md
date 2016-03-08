@@ -6,9 +6,9 @@ Welcome to day 2 of the course functional programming in JavaScript with React a
 
 The day will start with an introduction to React. In this part, we will be working on different assignments to get familiar with some of the core functionality of React. Will start with some basic stuff and add more complexity on the way.
 
-After we have warmed up with some React components, we will start to work on a case assignment. The case is to create a Memory like game. Today we will work on the view logic and on the last day, we will work on putting everything together. Memory is the game where you have a number of card pairs facing down on a board.  On each card, there is a picture, and the job is to find all the matching pairs using the fewest number of turns. A turn plays out by flipping two cards of the player’s choice, if the two cards flipped has the same image, these cards are removed from the board, if not the two cards are turned back on its back. The challenge is to memorize the location of flipped cards and remove all the pairs from the board as fast as possible.
+After we have warmed up with some React components, we will start to work on a case assignment. The case is to create a Memory-like game. Today we will work on the view logic and on the last day, we will work on putting everything together. For more information on the game, see [wikipedia](https://en.wikipedia.org/wiki/Concentration_(game)
 
-Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. If a part is difficult, please tell us, or just skip it.
+Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. Don't hesitate to ask us if you're stuck!
 
 ## Summary from day 1 - Map, Filter and reduce
 You can find the material from day 1 [here](https://github.com/bekk/funksjonell-frontend/tree/react/day1).
@@ -17,11 +17,11 @@ You can find the material from day 1 [here](https://github.com/bekk/funksjonell-
 Filter is a higher-order function that takes an array and a predicate function, and returns a new array with the values that the predicate function returns true for. An example is to remove all objects in an array with odd index.
 
 ```javascript
-function removeOddIndices(array) {
-  return array.filter((val, index, collection) => index % 2 === 0);
+function removeOddNumbers(array) {
+  return array.filter(val => val % 2 === 0);
 }
 
-//removeOddIndices([0,1,2,3,4]) === [0,2,4]
+//removeOddNumbers([0,1,2,3,4]) === [0,2,4]
 ```
 
 ### Map
@@ -29,7 +29,7 @@ Map is a higher-order function that takes an array and a function, and returns a
 
 ```javascript
 function square(numbers) {
-  return numbers.map((value, index, collection) => value * value);
+  return numbers.map(value => value * value);
 }
 
 //square([2,3,4]) === [4,9,16]
@@ -41,7 +41,7 @@ Reduce applies a function against an accumulator and each value of the array to 
 
 ```javascript
   function sum(arr) {
-    return arr.reduce((acc, value, index, collection) =>{
+    return arr.reduce((acc, value) =>{
       // What is returned in this function is used as `acc` for
       // the next iteration
       return acc + value;
@@ -51,6 +51,8 @@ Reduce applies a function against an accumulator and each value of the array to 
     // What we return on the last iteration is the result of
     // the reduce.
   }
+
+// sum([1,2,3]) === 6
 ```
 
 ## Part 1 - React warm up
@@ -92,11 +94,11 @@ const HelloFruit = () => {
 const Fruits = () => {
   const fruitList = ['banana', 'apple', 'orange'];
   const fruits = fruitList.map(( fruit ) => {
-      return ( <li>{ fruit }</li> );
+      return <li>{ fruit }</li>;
   });
-  return (
-    <ul> { fruits } </ul> // React will render the <li> elements in fruits
-  );
+  return <ul> { fruits } </ul>; 
+  // React will render the <li> elements in fruits
+  
 }
 ```
 
@@ -118,9 +120,7 @@ const Fruit = (props) => {
 [Live example](http://jsbin.com/xuxalo/26/edit?js,output)
 ```javascript
 const FruitBowl = (props) => {
-  return (
-    <div> { props.children } </div>
-  )
+  return <div> { props.children } </div>;
 }
 
 // In some other component
@@ -163,172 +163,34 @@ We will use `JsBin` as our online editor for the day. Start on the assignment by
 
 * Task 3 - Create a new component `<Actors>` that displays 3 hardcoded actors of your choice. Use the `<Actor>` component for each actor.
 
-* Task 4 - Pass the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list instead of renderning the hardcoded actors from the previous task.
+* Task 4 - Pass the `actorList` bellow as a prop `actors` to the `<Actors>` component. Render each actor in the list instead of rendering the hardcoded actors from the previous task.
 
 ```javascript
 const actorList = [
   'Leonardo DiCaprio',
   'Matt Damon',
   'Michael Fassbender',
-  'Cate Blanchett',
+  'Cate Blanchett'
 ];
 ```
 
-* Task 5 -Change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor.
+* Task 5 - Change the `actorList` to the `actorsWithOscars` list and do the necessary changes to show the name and number of Oscars for each actor.
 
 ```javascript
 const actorsWithOscars = [
-    {
-      name: 'Jack Nicholson',
-      oscars: 3
-    },
-    {
-      name: 'Katharine Hepburn',
-      oscars: 4
-    },
-    {
-      name: 'Kevin Spacey',
-      oscars: 2
-    },
-    {
-      name: 'Tom Hanks',
-      oscars: 2
-    },
-    {
-      name: 'Leonardo DeCaprio',
-      oscars: 1
-    },
-    {
-      name: 'Johnny Depp',
-      oscars: 0
-    },
+    { name: 'Jack Nicholson', oscars: 3 },
+    { name: 'Katharine Hepburn', oscars: 4 },
+    { name: 'Kevin Spacey', oscars: 2 },
+    { name: 'Tom Hanks', oscars: 2 },
+    { name: 'Leonardo DeCaprio', oscars: 1 },
+    { name: 'Johnny Depp', oscars: 0 }
 ];
 ```
 * Task 6 - Sort the actors by number of Oscars.
 
 * Task 7 - Show only Actors with more than 2 Oscars.
 
-* Task 8 - Show the actor currently holding the highest number of Oscars. Use `reduce` to find the actor.
-
-* Task 9 - In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`.
-
-#### Extra:
-
-* Task 10 - Create a `<Oscar>` component that displays the year and title of an award. Render the awards for each actor in the `<Actor>` component.
-
-* Task 11 - Create a `<OscarMovies>` component and a `<Movie>` component. Render a list of containing all of the movie titles from the actor `actorsWithOscarsExtended` list. Sort the movies by year.
-
-* Task 12 - In the list of actors create some kind of visual highlight for the actor with the most Oscars.
-
-* Task 13 - Show a list of how many actors that have a given number of Oscars. e.g `2 actor(s) has 1 Oscar(s) `
-
-```javascript
-const actorsWithOscarsExtended = [
-    {
-        name: 'Jack Nicholson',
-        oscars: 3,
-        nominations: 12,
-        awards: [
-            {
-                title: 'One flew over the cuckoos nest',
-                year: '1975'
-            },
-            {
-                title: 'As Good as It Gets',
-                year: '1997'
-            },
-            {
-                title: 'Terms of Endearment',
-                year: '1983'
-            }
-        ]
-    },
-    {
-        name: 'Katharine Hepburn',
-        oscars: 4,
-        nominations: 12,
-        awards: [
-            {
-                title: 'Morning Glory',
-                year: '1933'
-            },
-            {
-                title: 'Guess Whos Coming to Dinner',
-                year: '1967'
-            },
-            {
-                title: 'The Lion in Winter',
-                year: '1968'
-            },
-            {
-                title: 'On Golden Pond',
-                year: '1981'
-            }
-        ]
-    },
-    {
-        name: 'Kevin Spacey',
-        oscars: 2,
-        nominations: 2,
-        awards: [
-            {
-                title: 'American Beauty',
-                year: '1999'
-            },
-            {
-                title: 'The Usual Suspects ',
-                year: '1995'
-            }
-        ]
-    },
-
-    {
-        name: 'Tom Hanks',
-        oscars: 2,
-        nominations: 5,
-        awards: [
-            {
-                title: 'Philadelphia',
-                year: '1993'
-            },
-            {
-                title: 'Forrest Gump',
-                year: '1994'
-            }
-        ]
-    },
-    {
-        name: 'Leonardo DeCaprio',
-        oscars: 1,
-        nominations: 6,
-        awards: [
-            {
-                title: 'The Revenant',
-                year: '2016'
-            }
-        ]
-    },
-    {
-        name: 'Johnny Depp',
-        oscars: 0,
-        nominations: 3,
-        awards: []
-    }
-];
-```
-
-### Solutions part 1
-1. [Solution task 1](http://jsbin.com/sojejoz/5/edit?html,js,output)
-2. [Solution task 2](http://jsbin.com/sojejoz/6/edit?js,output)
-3. [Solution task 3](http://jsbin.com/sojejoz/12/edit?js,output)
-4. [Solution task 4](http://jsbin.com/sojejoz/15/edit?js,output)
-5. [Solution task 5](http://jsbin.com/sojejoz/24/edit?js,output)
-6. [Solution task 6](http://jsbin.com/sojejoz/29/edit?js,output)
-7. [Solution task 7](http://jsbin.com/sojejoz/34/edit?js,output)
-8. [Solution task 8](http://jsbin.com/sojejoz/42/edit?js,console,output)
-9. [Solution task 9](http://jsbin.com/goqemu/4/edit?js,output)
-10. [Solution task 10](http://jsbin.com/jixijo/122/edit?js,output)
-11. [Solution task 11](http://jsbin.com/caqace/25/edit?js,output)
+* Task 8 - In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`. Use `reduce` to find the total number of Oscars.
 
 
 ## Part 2 - Memory game
@@ -343,7 +205,7 @@ In this part, we will start to setup the view logic of the Memory game. We have 
 
 
 ```javascript
-const data = {
+const game = {
     cards: [
         { item: 'http://lorempixel.com/200/200/cats/1/', matched: false, open: false},
         { item: 'http://lorempixel.com/200/200/cats/6/', matched: true, open: true},
@@ -368,17 +230,17 @@ const cardBacksideUrl = "http://lorempixel.com/image_output/abstract-q-g-200-200
 ### Card component
 We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `face up`, `face down` and `matched`.
 
-**Start in this JsBin: [Clone me and starte here](http://jsbin.com/sujekun/9/edit?js,output)**
+**Start in this JsBin: [Clone me and start here](http://jsbin.com/sujekun/9/edit?js,output)**
 
-* Create a `<Card>` component and pass `data.cards[0]` as a prop named `data`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
+* Create a `<Card>` component and pass `game.cards[0]` as a prop named `card`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
 ```
 <div className="card">Hello card</div>
 ```
-* Let the `<Card>` component render an image from the URL passed in from `props.data.item`.
+* Let the `<Card>` component render an image from the URL passed in from `props.game.item`.
 
-* When `props.data.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `data` object.
+* When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `data` object.
 
-* If `props.data.matched` is set to `true`, add the className `matched` to the card `<div>`
+* If `props.game.matched` is set to `true`, add the className `matched` to the card `<div>`
 
 * Add an `onClick` listener on the card component that triggers an window.alert.
 
@@ -410,9 +272,6 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Display the highscore from `data.highscore`
 
-## Solution
-[Solution example](http://jsbin.com/yetiqok/282)
-
 ### Extra
 * Add a key `gameComplete` to the `data` object and create a restart button and some game won graphics.
 
@@ -426,4 +285,18 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Read about `key` attribute and add this where it is needed.
 
-EOF
+
+## Solutions to tasks
+
+### Part 1
+1. [Solution task 1](http://jsbin.com/sojejoz/5/edit?html,js,output)
+2. [Solution task 2](http://jsbin.com/sojejoz/6/edit?js,output)
+3. [Solution task 3](http://jsbin.com/sojejoz/12/edit?js,output)
+4. [Solution task 4](http://jsbin.com/sojejoz/15/edit?js,output)
+5. [Solution task 5](http://jsbin.com/sojejoz/24/edit?js,output)
+6. [Solution task 6](http://jsbin.com/sojejoz/29/edit?js,output)
+7. [Solution task 7](http://jsbin.com/sojejoz/34/edit?js,output)
+8. [Solution task 8](http://jsbin.com/goqemu/4/edit?js,output)
+
+### Part 2
+[Solution example](http://jsbin.com/yetiqok/282)
