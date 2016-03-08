@@ -55,9 +55,20 @@ Reduce applies a function against an accumulator and each value of the array to 
 // sum([1,2,3]) === 6
 ```
 
-## Part 1 - React warm up
+## Part 1 - React Warm Up
 Here are some basic React examples. Feel free to go to the Live examples and
 play with the code.
+
+#### Render a component
+
+```javascript
+const Component = () => {
+  return <div>Hello World!</div>;
+};
+
+ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
+```
+
 
 #### Render a component with props
 [Live example](http://jsbin.com/xuxalo/4/edit?js,output)
@@ -69,8 +80,6 @@ const Hello = (props) => {
     </div>
   );
 };
-
-ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
 ```
 
 
@@ -193,7 +202,7 @@ const actorsWithOscars = [
 * Task 8 - In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`. Use `reduce` to find the total number of Oscars.
 
 
-## Part 2 - Memory game
+## Part 2 - Memory
 In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/282)**
 
 1. A click on a `<Card>` opens it
