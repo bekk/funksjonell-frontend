@@ -245,7 +245,7 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ```
 <div className="card">Hello card</div>
 ```
-* Let the `<Card>` component render an image from the URL passed in from `props.game.item`.
+* Let the `<Card>` component render an image from the URL passed in from `props.card.item`.
 
 * When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `game` object.
 
