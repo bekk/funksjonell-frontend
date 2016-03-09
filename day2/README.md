@@ -203,7 +203,7 @@ const actorsWithOscars = [
 
 
 ## Part 2 - Memory
-In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/282)**
+In this part, we will start to setup the view logic of the Memory game. We have provided an object `game` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/282)**
 
 1. A click on a `<Card>` opens it
 2. A click on a second `<Card>` opens it
@@ -247,7 +247,7 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ```
 * Let the `<Card>` component render an image from the URL passed in from `props.game.item`.
 
-* When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `data` object.
+* When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `game` object.
 
 * If `props.game.matched` is set to `true`, add the className `matched` to the card `<div>`
 
@@ -256,14 +256,14 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ### Board component
 Next we need to create the `<Board>`. The `<Board>` component will be used as an container for all of the `<Card>` components.
 
-* Create and render a `<Board>` component and pass `data.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
+* Create and render a `<Board>` component and pass `game.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
 
 * Render a `<Card>` component for each of the cards in `props.cards`.
 
 ### Game component
 Now we will create a `<Game>` component. The game component will be the top level component and will hold the `<Board>`, `<MoveCounter>` and `<Highscore>` components
 
-* Create a `<Game>` component and pass `data` as a prop.
+* Create a `<Game>` component and pass `game` as a prop.
 
 * Move the `<Board>` component inside the `<Game>` component and pass the correct props.
 
@@ -273,18 +273,18 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Create a `<MoveCounter>` and insert it inside the `<Game>` component.
 
-* Pass `data.rounds` as props and display the current score
+* Pass `game.rounds` as props and display the current score
 
 ### Highscore component
 
 * Create a `<Highscore>` component and insert it inside the `Game` component
 
-* Display the highscore from `data.highscore`
+* Display the highscore from `game.highscore`
 
 ### Extra
-* Add a key `gameComplete` to the `data` object and create a restart button and some game won graphics.
+* Add a key `gameComplete` to the `game` object and create a restart button and some game won graphics.
 
-* Add a highscore list of `names` and `scores` to the `data` object and create a render a list of the best players.
+* Add a highscore list of `names` and `scores` to the `game` object and create a render a list of the best players.
 
 * Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<Card>` components. Trigger this on a card click, and re-render the game to show the new state.
 
