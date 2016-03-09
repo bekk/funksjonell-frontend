@@ -105,9 +105,9 @@ const Fruits = () => {
   const fruits = fruitList.map(( fruit ) => {
       return <li>{ fruit }</li>;
   });
-  return <ul> { fruits } </ul>; 
+  return <ul> { fruits } </ul>;
   // React will render the <li> elements in fruits
-  
+
 }
 ```
 
@@ -203,7 +203,7 @@ const actorsWithOscars = [
 
 
 ## Part 2 - Memory
-In this part, we will start to setup the view logic of the Memory game. We have provided an object `game` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/282)**
+In this part, we will start to setup the view logic of the Memory game. We have provided an object `game` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/288)**
 
 1. A click on a `<Card>` opens it
 2. A click on a second `<Card>` opens it
@@ -308,4 +308,4 @@ Now we will create a `<Game>` component. The game component will be the top leve
 8. [Solution task 8](http://jsbin.com/goqemu/4/edit?js,output)
 
 ### Part 2
-[Solution example](http://jsbin.com/yetiqok/282)
+[Solution example](http://jsbin.com/yetiqok/edit?js,output)
