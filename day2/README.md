@@ -239,7 +239,7 @@ const cardBacksideUrl = "http://lorempixel.com/image_output/abstract-q-g-200-200
 ### Card component
 We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `face up`, `face down` and `matched`.
 
-**Start in this JsBin: [Clone me and start here](http://jsbin.com/sujekun/9/edit?js,output)**
+**Start in this JsBin: [Clone me and start here](http://jsbin.com/cucuxuqoxo/1/edit?js,output)**
 
 * Create a `<Card>` component and pass `game.cards[0]` as a prop named `card`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
 ```
