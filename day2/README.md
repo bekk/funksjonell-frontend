@@ -98,7 +98,7 @@ const HelloFruit = () => {
 ```
 
 #### List
-[Live example](http://jsbin.com/xuxalo/57/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/64/edit?js,output)
 ```javascript
 const Fruits = () => {
   const fruitList = ['banana', 'apple', 'orange'];
