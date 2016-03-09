@@ -60,7 +60,7 @@ Here are some basic React examples. Feel free to go to the Live examples and
 play with the code.
 
 #### Render a component with props
-[Live example](http://jsbin.com/xuxalo/4/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/55/edit?js,output)
 ```javascript
 const Hello = (props) => {
   return (
@@ -75,7 +75,7 @@ ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
 
 
 #### Composition
-[Live example](http://jsbin.com/xuxalo/7/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/56/edit?js,output)
 ```javascript
 const HelloFruit = () => {
   return (
@@ -89,7 +89,7 @@ const HelloFruit = () => {
 ```
 
 #### List
-[Live example](http://jsbin.com/xuxalo/8/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/57/edit?js,output)
 ```javascript
 const Fruits = () => {
   const fruitList = ['banana', 'apple', 'orange'];
@@ -103,7 +103,7 @@ const Fruits = () => {
 ```
 
 #### If
-[Live example](http://jsbin.com/xuxalo/18/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/58/edit?js,output)
 ```javascript
 const Fruit = (props) => {
   if (props.name === 'banana') {
@@ -117,7 +117,7 @@ const Fruit = (props) => {
 ```
 
 ### Children
-[Live example](http://jsbin.com/xuxalo/26/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/59/edit?js,output)
 ```javascript
 const FruitBowl = (props) => {
   return <div> { props.children } </div>;
@@ -132,7 +132,7 @@ const FruitBowl = (props) => {
 ```
 
 ### Handle click
-[Live example](http://jsbin.com/xuxalo/30/edit?js,output)
+[Live example](http://jsbin.com/xuxalo/60/edit?js,output)
 ```javascript
 const Clickable = (props) => {
   return (
@@ -142,7 +142,7 @@ const Clickable = (props) => {
 ```
 
 ### Styling
-[Live example](http://jsbin.com/xuxalo/48/edit?css,js,output)
+[Live example](http://jsbin.com/xuxalo/62/edit?css,js,output)
 ```javascript
 const SomeComponent = () => {
   return (
