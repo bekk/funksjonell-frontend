@@ -247,9 +247,9 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ```
 * Let the `<Card>` component render an image from the URL passed in from `props.card.item`.
 
-* When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `game` object.
+* When `props.data.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `game` object.
 
-* If `props.game.matched` is set to `true`, add the className `matched` to the card `<div>`
+* If `props.data.matched` is set to `true`, add the className `matched` to the card `<div>`
 
 * Add an `onClick` listener on the card component that triggers an window.alert.
 
