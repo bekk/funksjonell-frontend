@@ -55,9 +55,20 @@ Reduce applies a function against an accumulator and each value of the array to 
 // sum([1,2,3]) === 6
 ```
 
-## Part 1 - React warm up
+## Part 1 - React Warm Up
 Here are some basic React examples. Feel free to go to the Live examples and
 play with the code.
+
+#### Render a component
+
+```javascript
+const Component = () => {
+  return <div>Hello World!</div>;
+};
+
+ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
+```
+
 
 #### Render a component with props
 [Live example](http://jsbin.com/xuxalo/55/edit?js,output)
@@ -69,8 +80,6 @@ const Hello = (props) => {
     </div>
   );
 };
-
-ReactDOM.render(<Hello name='World'/>, document.getElementById('app'));
 ```
 
 
@@ -96,9 +105,9 @@ const Fruits = () => {
   const fruits = fruitList.map(( fruit ) => {
       return <li>{ fruit }</li>;
   });
-  return <ul> { fruits } </ul>; 
+  return <ul> { fruits } </ul>;
   // React will render the <li> elements in fruits
-  
+
 }
 ```
 
@@ -193,8 +202,8 @@ const actorsWithOscars = [
 * Task 8 - In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`. Use `reduce` to find the total number of Oscars.
 
 
-## Part 2 - Memory game
-In this part, we will start to setup the view logic of the Memory game. We have provided an object `data` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/282)**
+## Part 2 - Memory
+In this part, we will start to setup the view logic of the Memory game. We have provided an object `game` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/288)**
 
 1. A click on a `<Card>` opens it
 2. A click on a second `<Card>` opens it
@@ -230,7 +239,7 @@ const cardBacksideUrl = "http://lorempixel.com/image_output/abstract-q-g-200-200
 ### Card component
 We will start to create a `<Card>` component. The `<Card>` component will represent one card in the game. A card could have three possible states, `face up`, `face down` and `matched`.
 
-**Start in this JsBin: [Clone me and start here](http://jsbin.com/sujekun/9/edit?js,output)**
+**Start in this JsBin: [Clone me and start here](http://jsbin.com/cucuxuqoxo/1/edit?js,output)**
 
 * Create a `<Card>` component and pass `game.cards[0]` as a prop named `card`. The component should render a `<div>` with the className `"card"`. Render a text "card" for now.
 ```
@@ -238,7 +247,7 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ```
 * Let the `<Card>` component render an image from the URL passed in from `props.game.item`.
 
-* When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `data` object.
+* When `props.game.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.game.item`. Remember that you can test different states by changing the values in the `game` object.
 
 * If `props.game.matched` is set to `true`, add the className `matched` to the card `<div>`
 
@@ -247,14 +256,14 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ### Board component
 Next we need to create the `<Board>`. The `<Board>` component will be used as an container for all of the `<Card>` components.
 
-* Create and render a `<Board>` component and pass `data.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
+* Create and render a `<Board>` component and pass `game.cards` as a prop named `cards`. The component should render a `<div>` with className `"board"`
 
 * Render a `<Card>` component for each of the cards in `props.cards`.
 
 ### Game component
 Now we will create a `<Game>` component. The game component will be the top level component and will hold the `<Board>`, `<MoveCounter>` and `<Highscore>` components
 
-* Create a `<Game>` component and pass `data` as a prop.
+* Create a `<Game>` component and pass `game` as a prop.
 
 * Move the `<Board>` component inside the `<Game>` component and pass the correct props.
 
@@ -264,18 +273,18 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Create a `<MoveCounter>` and insert it inside the `<Game>` component.
 
-* Pass `data.rounds` as props and display the current score
+* Pass `game.rounds` as props and display the current score
 
 ### Highscore component
 
 * Create a `<Highscore>` component and insert it inside the `Game` component
 
-* Display the highscore from `data.highscore`
+* Display the highscore from `game.highscore`
 
 ### Extra
-* Add a key `gameComplete` to the `data` object and create a restart button and some game won graphics.
+* Add a key `gameComplete` to the `game` object and create a restart button and some game won graphics.
 
-* Add a highscore list of `names` and `scores` to the `data` object and create a render a list of the best players.
+* Add a highscore list of `names` and `scores` to the `game` object and create a render a list of the best players.
 
 * Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<Card>` components. Trigger this on a card click, and re-render the game to show the new state.
 
@@ -299,4 +308,4 @@ Now we will create a `<Game>` component. The game component will be the top leve
 8. [Solution task 8](http://jsbin.com/goqemu/4/edit?js,output)
 
 ### Part 2
-[Solution example](http://jsbin.com/yetiqok/282)
+[Solution example](http://jsbin.com/yetiqok/edit?js,output)
