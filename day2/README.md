@@ -257,7 +257,7 @@ Next we need to create the `<Board>`. The `<Board>` component will be used as an
 * Render a `<Card>` component for each of the cards in `props.cards`.
 
 ### Game component
-Now we will create a `<Game>` component. The game component will be the top level component and will hold the `<Board>`, `<MoveCounter>` and `<Highscore>` components
+Now we will create a `<Game>` component. The game component will be the top level component and will hold the `<Board>`, `<Score>` and `<Highscore>` components
 
 * Create a `<Game>` component and pass `game` as a prop.
 
