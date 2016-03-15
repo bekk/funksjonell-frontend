@@ -199,19 +199,11 @@ const actorsWithOscars = [
 
 * Task 7 - Show only Actors with more than 2 Oscars.
 
-* Task 8 - In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 13 Oscars`. Use `reduce` to find the total number of Oscars.
+* Task 8 - Remove the filter from Task 7. In the bottom of the Actors component create a new component that displays the total amount of Oscars and actors e.g. `6 actors with a total of 12 Oscars`. Use `reduce` to find the total number of Oscars.
 
 
 ## Part 2 - Memory
 In this part, we will start to setup the view logic of the Memory game. We have provided an object `game` that represent a snapshot of the game state. We will use this state to help us create and test the layout of the game. The result should look something like this: **[Goal of the day](http://jsbin.com/yetiqok/288)**
-
-1. A click on a `<Card>` opens it
-2. A click on a second `<Card>` opens it
-3. If two `<Card>` tiles matches, they stay open
-4. If a third `<Card>` is clicked and there are two other non matching `<Cards>` open, the other are closed.
-5. Every click increments the `number of moves`
-6. The game is finished when there are no more `<Card>` to match
-
 
 ```javascript
 const game = {
@@ -245,11 +237,15 @@ We will start to create a `<Card>` component. The `<Card>` component will repres
 ```
 <div className="card">Hello card</div>
 ```
-* Let the `<Card>` component render an image from the URL passed in from `props.card.item`.
+* Replace the `<div>` with an `<img>` element and let the `<Card>` component render an image from the URL passed in from `props.card.item`.
 
-* When `props.data.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.data.item`. Remember that you can test different states by changing the values in the `game` object.
+* When `props.card.open` is set to `false`, render an image using the URL `cardBacksideUrl` rather than the URL from `props.card.item`. Remember that you can test different states by changing the values in the `game` object.
 
-* If `props.data.matched` is set to `true`, add the className `matched` to the card `<div>`
+* If `props.card.matched` is set to `true`, set the className `"card matched"` to the card `<img>` element. If `false` set only className `"card"`
+Hint:
+```
+<img className={ someVariable } />
+```
 
 * Add an `onClick` listener on the card component that triggers an window.alert.
 
@@ -269,9 +265,12 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Create a header `<h1>` with a game title
 
-### MoveCounter
+### Score Component
+Now we need to display the current game score.
 
-* Create a `<MoveCounter>` and insert it inside the `<Game>` component.
+* Create a `<Score>` component and place it inside the `<Game>` component.
+
+* Add className `"score"`
 
 * Pass `game.rounds` as props and display the current score
 
@@ -281,15 +280,23 @@ Now we will create a `<Game>` component. The game component will be the top leve
 
 * Display the highscore from `game.highscore`
 
-### Extra
-* Add a key `gameComplete` to the `game` object and create a restart button and some game won graphics.
+### Extra - Implement the game logic
+* Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<Card>` components. Trigger `flipcard` on a card click, and re-render the game to show the new state.
 
-* Add a highscore list of `names` and `scores` to the `game` object and create a render a list of the best players.
+* Implement the following logic:
+  1. A click on a `<Card>` opens it
+  2. A click on a second `<Card>` opens it
+  3. If two `<Card>` tiles matches, they stay open
+  4. If a third `<Card>` is clicked and there are two other non matching `<Cards>` open, the other are closed.
+  5. Every click increments the `number of moves`
+  6. The game is finished when there are no more `<Card>` to match
 
-* Create a function `flipCard(cardIndex)` that changes the `open` value of a given card. Pass this method down to the `<Card>` components. Trigger this on a card click, and re-render the game to show the new state.
 
-### Extra Extra
+* Create a restart button and some game won graphics. Remember to shuffle the cards when you restart the game.
 
+* Extend the game to display `scores` and `names` of the `10` best players. The name of a player should be collected at the end of the game.
+
+### Extra extra
 * Read about `Proptypes` in functional stateless components and add this to all of the components used in the game.
 
 * Read about `key` attribute and add this where it is needed.
