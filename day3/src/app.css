@@ -1,0 +1,47 @@
+body {
+  background-color: #444;
+}
+
+.game {
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: #333;
+  font-family: 'Pacifico', cursive;
+  width: 700px;
+  text-align: center;
+}
+
+h1 {
+  color: gold;
+  margin: 0;
+  font-size: 60px
+}
+
+.board {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.score {
+  color: white;
+  font-size: 40px;
+}
+
+.highscore {
+  font-size: 20px;
+  color: white;
+}
+
+.card {
+  border-radius: 5px;
+  margin: 5px 5px 0 0;
+  width: 150px;  /* Or whatever */
+  height: 150px; /* Or whatever */
+}
+
+.card.matched {
+  opacity: 0.3;
+}
