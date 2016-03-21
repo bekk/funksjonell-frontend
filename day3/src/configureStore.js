@@ -5,10 +5,10 @@ import rootReducer from './reducers';
 import DevTools from './containers/DevTools';
 
 const storeEnhancer = compose(
-    applyMiddleware(thunk, createLogger()),
-    DevTools.instrument()
+  applyMiddleware(thunk, createLogger()),
+  DevTools.instrument()
 );
 
 export default function (initialState) {
-    return createStore(rootReducer, initialState, storeEnhancer);
+  return createStore(rootReducer, initialState, storeEnhancer);
 }

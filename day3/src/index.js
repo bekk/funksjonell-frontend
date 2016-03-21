@@ -9,11 +9,11 @@ import DevTools from './containers/DevTools';
 const store = configureStore();
 
 render(
-    <Provider store={ store }>
-        <div>
-            <DevTools />
-            <App />
-        </div>
-    </Provider>,
-    document.querySelector('#app')
+  <Provider store={ store }>
+    <div>
+      <DevTools />
+      <App />
+    </div>
+  </Provider>,
+  document.querySelector('#app')
 );
