@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import '../app.css';
-import cards from '../data.js';
+import {cards, game} from '../data.js';
 
 import Game from '../components/Game';
 
 const App = props => (
     <Game
         cards={ cards }
-        rounds={ props.game.rounds }
-        highscore={ props.game.highscore }
+        rounds={ game.rounds }
+        highscore={ game.highscore }
     />
 );
 

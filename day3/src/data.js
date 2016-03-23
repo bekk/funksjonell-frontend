@@ -1,4 +1,4 @@
-const cards = [
+export const cards = [
     { item: 'http://lorempixel.com/200/200/cats/1/', matched: false, open: false},
     { item: 'http://lorempixel.com/200/200/cats/6/', matched: true, open: true},
     { item: 'http://lorempixel.com/200/200/cats/4/', matched: false, open: false},
@@ -13,5 +13,8 @@ const cards = [
     { item: 'http://lorempixel.com/200/200/cats/5/', matched: true, open: true},
 ]
 
+export const game = {
+    rounds: 10,
+    highscore: Number.MAX_VALUE
+}
 
-export default cards;

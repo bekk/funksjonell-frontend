@@ -1,28 +1,26 @@
+import { combineReducers } from 'redux';
+
 import {
-    CARD_FLIPPED,
-    GAME_FINISHED,
     GAME_RESET
-} from '../actions';
+} from './actions';
 
-const initialState = {
-    rounds: 0,
-    highscore: Number.MAX_VALUE
-};
+const initialStateCards = [];
 
-const gameReducer = (state = initialState, action) => {
+const cardReducer = (state = initialStateCards, action) => {
     switch (action.type) {
-        case GAME_FINISHED:
-            return Object.assign({}, state, {
-                finished: true,
-                highscore: Math.min(state.rounds, state.highscore)
-            });
-        case GAME_RESET:
-            return Object.assign({}, initialState, {
-                highscore: state.highscore
-            });
-        default:
-            return state;
+    case GAME_RESET:
+        console.log('The game reset action creator was called');
+    default:
+        return state;
     }
-};
+}
 
-export default gameReducer;
+
+
+
+
+
+
+export default combineReducers({
+    cardReducer,
+});
