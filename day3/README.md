@@ -109,4 +109,8 @@ Make sure that the `App` component receives the game state, hint: take a look at
 You have completed this task when the score increases as you flip the cards.
 
 ## Task 5: Putting the game logic into the app - functional programming
+Instructions to game logic HERE
+
+## Task 6: Structuring your app - where should the data flow?
+Instructions on how to move the store connection higher up in the component tree HERE.
 
