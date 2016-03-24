@@ -4,7 +4,7 @@ Today we will complete our Memory Game app. For the basic setup of the game that
 However, as our code base will be growing today, having all our code in one single file becomes more of an obstacle.
 Thus, we have created an npm project with the React code from last time.  
 
-## Clone and install
+### Clone and install
 
 Ensure that you have Node.js installed, otherwise install from https://nodejs.org/.
 
@@ -27,7 +27,7 @@ Start the app:
 npm start
 ```
 
-## Open the project
+### Open the project
 Open your favorite editor, if you don't have one installed, download sublime https://www.sublimetext.com/3.
 We have put the components you created last time into separate files in `src/components`. 
 You can also find the card data (`src/data.js`), the css-file (`src/app.css`) and the html-file (`public/index.html`)) from jsbin inside the project.
