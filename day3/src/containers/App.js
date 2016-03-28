@@ -15,13 +15,13 @@ const App = props => (
 );
 
 App.propTypes = {
-    cards: React.PropTypes.array.isRequired,
+    cards: React.PropTypes.array,
     game: React.PropTypes.shape({
-        rounds: React.PropTypes.number.isRequired,
-        highscore: React.PropTypes.number.isRequired,
+        rounds: React.PropTypes.number,
+        highscore: React.PropTypes.number,
     })
 };
 
 export default connect(state => ({
-    game: state.game
+    cards: state.cards
 }))(App);

@@ -1,4 +1,4 @@
-export const GAME_RESET = 'GAME RESET';
+export const GAME_RESET = 'GAME_RESET';
 
 export function resetGame() {
     return {
