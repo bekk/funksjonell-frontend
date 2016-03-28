@@ -2,7 +2,7 @@
 
 Today we will complete our Memory Game app. For the basic setup of the game that we did last time, jsbin was a good platform. 
 However, as our code base will be growing today, having all our code in one single file becomes more of an obstacle.
-Thus, we have created an npm project with the React code from last time.  
+Thus, we have created a "real-world" project structure with the React code from last time.  
 
 ### Clone and install
 
@@ -77,7 +77,7 @@ const initialStateCards = [
 ```
 
 Now, inside the reducer function named `cardReducer` there is a switch statement waiting for the action `GAME_RESET`. 
-In here is where you should reset the cards.
+This is where you should reset the state of the cards?
 You want to map over the array of cards (`state.map`) and set `open` to `false` and `matched` to `false`.
 You can check if you are doing things correctly by inspecting the `cardReducer` object in the Redux panel and see if the cards have changed.
  
@@ -85,14 +85,15 @@ Now, to complete this task, we need to insert the state data into our `App`, ins
 The `App` is already connected to the store by the statement at the bottom of the file:
 ```
 export default connect(state => ({
-    cards: state.cardReducer
+    cards: state.card
 }))(App);
 ```
 Thus, all you need to do is to pass `props.cards` to the `Game` component. Now, when you press the Restart button, all cards should flip!
     
 ### Task 3: Flip a single card - practicing the Redux pattern 
-Start by creating a new action creator `flipCard(cardData)` that returns the type `CARD_FLIP` in `actions.js`. Remember to export the type at the top of the file.
-In this function you need to return the card that was flipped as well (cardData).
+Start by creating a new action creator `flipCard(card)` that returns an object with the type `CARD_FLIP` in `actions.js`. 
+Remember to export the action type constant at the top of the file.
+In the action returned by `flipCard` you also need to send the card.
 Next, call this action creator when you click on a card (Hint: see `ResetGame`), remember to import the `connect` function. 
 Check the Redux panel to see if the action is firing.
 Lastly, implement the corresponding reducer, i.e. expand the switch statement that you created in `reducers.js`. 
@@ -102,10 +103,10 @@ When you have finished this task, cards should open when you click on them.
 We want the score to increase each time we flip a card. Right now the score is static. 
 We need to create a new reducer, `gameReducer`, to keep the game state (`rounds`and `highscore`).  
 This reducer has to increase the number of rounds each time the `CARD_FLIP` action is called.
-It should also reset the score when the `GAME_RESET` action is fired.
+It should also reset the score (but not the highscore) when the `GAME_RESET` action is fired.
 Create this reducer, remember to set the initial state and to export the reducer (i.e. pass it as an argument to the `combineReducers`function).
 
-You may also want to set the initial state of the cards to be face down.
+You may also want to set the initial state of all the cards to be closed and not matched.
 
 Make sure that the `App` component receives the game state, hint: take a look at the `connect` function in `App.js`.
 You have completed this task when the score increases as you flip the cards AND is reset to zero when you press the reset button.
