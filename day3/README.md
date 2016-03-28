@@ -77,7 +77,7 @@ const initialStateCards = [
 ```
 
 Now, inside the reducer function named `cardReducer` there is a switch statement waiting for the action `GAME_RESET`. 
-This is where you should reset the state of the cards?
+This is where you should reset the state of the cards.
 You want to map over the array of cards (`state.map`) and set `open` to `false` and `matched` to `false`.
 You can check if you are doing things correctly by inspecting the `cardReducer` object in the Redux panel and see if the cards have changed.
  

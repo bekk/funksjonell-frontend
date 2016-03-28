@@ -6,7 +6,7 @@ import {
 
 const initialStateCards = [];
 
-const card = (state = initialStateCards, action) => {
+const cards = (state = initialStateCards, action) => {
     switch (action.type) {
     case GAME_RESET:
         console.log('The game reset action creator was called');
@@ -22,5 +22,5 @@ const card = (state = initialStateCards, action) => {
 
 
 export default combineReducers({
-    card,
+    cards,
 });
