@@ -93,7 +93,7 @@ Thus, all you need to do is to pass `props.cards` to the `Game` component. Now, 
 ### Task 3: Flip a single card - practicing the Redux pattern 
 Start by creating a new action creator `flipCard(card)` that returns an object with the type `CARD_FLIP` in `actions.js`. 
 Remember to export the action type constant at the top of the file.
-In the action returned by `flipCard` you also need to send the card.
+In the action returned by `flipCard` you also need to send the card data, so that the reducer "knows" which card to flip.
 Next, call this action creator when you click on a card (Hint: see `ResetGame`), remember to import the `connect` function. 
 Check the Redux panel to see if the action is firing.
 Lastly, implement the corresponding reducer, i.e. expand the switch statement that you created in `reducers.js`. 
