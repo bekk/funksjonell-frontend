@@ -46,6 +46,26 @@ In this extract, both Score and Game are view components that we used last time.
 
 This was just an example of one child component, but there are now problem with React to create as many children as you want. 
 
+### Redux
+store, reducer, action (objekt med evt type), dispatch, rerendring billig med React 
+
+
+# Unidirectional data flow
+
+```
+         +------+
+         |      |
+    +----> View +-----+
+    |    |      |     |
+    |    +------+     |
++---+---+        +----v---+
+|       |        |        |
+| Store <--------+ Action |
+|       |        |        |
++-------+        +--------+
+```
+
+
 ## Instructions
 
 Today we will complete our Memory Game app. For the basic setup of the game that we did last time, jsbin was a good platform. 
@@ -56,10 +76,10 @@ Thus, we have created a "real-world" project structure with the React code from 
 
 Ensure that you have Node.js installed, otherwise install from https://nodejs.org/.
 
-On the command line, clone this repo:
+Download this zip file containing the project https://github.com/bekk/funksjonell-frontend/archive/master.zip.
+Open the terminal/command line window and open the day3 folder:
 
 ```
-git clone https://github.com/bekk/funksjonell-frontend.git
 cd funksjonell-frontend/day3
 ```
 
@@ -126,7 +146,32 @@ const initialStateCards = [
 
 Now, inside the reducer function named `cardReducer` there is a switch statement waiting for the action `GAME_RESET`. 
 This is where you should reset the state of the cards.
-You want to map over the array of cards (`state.map`) and set `open` to `false` and `matched` to `false`.
+You want to map over the array of cards (`state.map`) and set `open` to `false` and `matched` to `false`.  Here you should use the `Object.assign` function https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign, as mentioned in the introduction. Lets take a trip down memory lane, here is an example on how to use it:
+```javascript
+const actorsAcademyAwards2015 = [
+    { name: 'Jack Nicholson', oscars: 3 },
+    { name: 'Tom Hanks', oscars: 2 },
+    { name: 'Leonardo DeCaprio', oscars: 0 },
+    { name: 'Johnny Depp', oscars: 0 }
+];
+const awardOscars2016 = {type: ACADEMY_AWARDS_2016};
+const reducer = (actors, action) => {
+    switch (action.type) {
+        case ACADEMY_AWARDS_2016:
+            return actors.map((actor) => {
+                if (actor.name === 'Leonardo DeCaprio') {
+                    return Object.assign({}, actor, {oscars: 1});
+                } else {
+                    return actor;
+                }
+            });
+        default: 
+            return actors;
+    } 
+}
+const actorsAcademyAwards2016 = reducer(actorsAcademyAwards2015, awardOscars2016)
+```
+
 You can check if you are doing things correctly by inspecting the `cardReducer` object in the Redux panel and see if the cards have changed.
  
 Now, to complete this task, we need to insert the state data into our `App`, instead of the static data from `data.js`. 
@@ -138,7 +183,10 @@ export default connect(state => ({
 ```
 Thus, all you need to do is to pass `props.cards` to the `Game` component. Now, when you press the Restart button, all cards should flip!
     
-### Task 3: Flip a single card - practicing the Redux pattern 
+### Task 3: Sending an onClick handler from the Game component to the Card component - passing functions down the hierarchy
+Guro write here
+    
+### Task 4: Flip a single card - practicing the Redux pattern 
 Start by creating a new action creator `flipCard(card)` that returns an object with the type `CARD_FLIP` in `actions.js`. 
 Remember to export the action type constant at the top of the file.
 In the action returned by `flipCard` you also need to send the card data, so that the reducer "knows" which card to flip.
@@ -147,7 +195,7 @@ Check the Redux panel to see if the action is firing.
 Lastly, implement the corresponding reducer, i.e. expand the switch statement that you created in `reducers.js`. 
 When you have finished this task, cards should open when you click on them. 
 
-### Task 4: Keeping track of the game state - creating a reducer from scratch 
+### Task 5: Keeping track of the game state - creating a reducer from scratch 
 We want the score to increase each time we flip a card. Right now the score is static. 
 We need to create a new reducer, `gameReducer`, to keep the game state (`rounds`and `highscore`).  
 This reducer has to increase the number of rounds each time the `CARD_FLIP` action is called.
@@ -159,9 +207,6 @@ You may also want to set the initial state of all the cards to be closed and not
 Make sure that the `App` component receives the game state, hint: take a look at the `connect` function in `App.js`.
 You have completed this task when the score increases as you flip the cards AND is reset to zero when you press the reset button.
 
-### Task 5: Putting the game logic into the app - functional programming
+### Task 6: Putting the game logic into the app - functional programming
 Instructions to game logic HERE
-
-###Format Task 6: Structuring your app - where should the data flow?
-Instructions on how to move the store connection higher up in the component tree HERE.
 
