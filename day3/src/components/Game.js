@@ -13,13 +13,11 @@ import {
   resetGame
 } from '../actions';
 
-const findMatch = (card, cards) =>
-  cards.find(c =>
-    c.id !== card.id &&
-    c.open &&
-    !c.matched &&
-    c.item === card.item
-  );
+import {
+  canFlipCard,
+  findMatch,
+  willMatchFinishGame
+} from '../utils';
 
 class Game extends React.Component {
   constructor(props) {
@@ -29,28 +27,20 @@ class Game extends React.Component {
   }
 
   handleCardClick(card) {
-    if (card.matched) {
+    const { cards, dispatch } = this.props;
+
+    if (!canFlipCard(card, cards)) {
       return;
     }
 
-    const { cards, dispatch } = this.props;
-    const countOpenUnmatchedCards = cards
-      .reduce((sum, c) => c.open && !c.matched ? sum + 1 : sum, 0);
-    const matchedCards = cards
-      .reduce((sum, c) => c.matched ? sum + 1 : sum, 0);
+    dispatch(flipCard(card));
 
-    if (card.open) {
-      dispatch(flipCard(card));
-    } else if (countOpenUnmatchedCards < 2) {
-      dispatch(flipCard(card));
+    const match = findMatch(card, cards);
+    if (match) {
+      dispatch(matchCards(card, match));
 
-      const match = findMatch(card, cards);
-      if (match) {
-        dispatch(matchCards(card, match));
-
-        if (matchedCards === cards.length - 2) {
-          dispatch(finishGame());
-        }
+      if (willMatchFinishGame(cards)) {
+        dispatch(finishGame());
       }
     }
   }
