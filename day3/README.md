@@ -90,6 +90,8 @@ The reducer is pure, which means that it takes the previous state and the action
 Do you remember that we used reducers in day 2? https://github.com/bekk/funksjonell-frontend/tree/master/day2#reduce
 Back then we used it to calculate a sum of Oscars. In Redux we are using reducers to update the state and store it as one JavaScript object.
 
+Here is one an example of a reducer that we will work with today.
+
 ```javascript
 
 const gameReducer = (state = initialStateGame, action) => {
@@ -105,11 +107,34 @@ const gameReducer = (state = initialStateGame, action) => {
 
 ```
 
+#### Object.assign() - Part of ES6
+As you can see in the reducer, we are using a function called Object.assign. Let's have a look and see what it does.
+
+To ensure that the current state is not mutated, Object.assign copies the values from one source object to a target object.
+
+```javascript
+var state = { rounds: 0 };
+var action = { rounds: state.rounds + 1 }
+
+var newState = Object.assign({}, state, action);
+
+//console.log(newState) ==> { rounds: 1 }
+```
+- The first argument is an empty target object.
+- The second argument is the source object or in this case the current state
+- The third argument is what we want to merge with the source object and to be part of the target object.
 
 ### Store
+In Redux we have one single store. The store brings the reducers and the actions together, and the its responsibility are the following:
 
+- Hold the application state
+- Allow access to getState()
+- Allow state to be updated via dispatch(action)
+- Handle registration and unregistration of listeners.
+- Combine reducers
 
-### Unidirectional data flow
+#### Unidirectional data flow
+In Redux all data flows in one direction.
 
 ```
          +------+
@@ -124,15 +149,16 @@ const gameReducer = (state = initialStateGame, action) => {
 +-------+        +--------+
 ```
 
+From the view component you call store.dispatch(action).
+The Redux store then calls the reducer function you gave it.
+The root reducer may combine the output of multiple reducers into a single state.
+The Redux store then saves the complete state tree returned by the reducer.
+
 ### DevTools
-
-### Object.assign({})
-Note on Object.assign
-
-Object.assign() is a part of ES6, but is not implemented by most browsers yet. You’ll need to either use a polyfill, a Babel plugin, or a helper from another library like
-
+The Redux DevTools is a handy browser tool when developing Redux. It gives you the opportunity to inspect state and action payload, lets you go back in time by redoing actions and let's you see potential errors your reducer throws. In the source code provided for day 3, DevTools is included.
 
 ## Instructions
+Now, enough introduction. Let´s start the fun!
 
 Today we will complete our Memory Game app. For the basic setup of the game that we did last time, jsbin was a good platform.
 However, as our code base will be growing today, having all our code in one single file becomes more of an obstacle.
