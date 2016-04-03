@@ -58,12 +58,11 @@ So let´s dig deeper into the most important concepts of Redux.
 ### Actions
 Actions are the way to pass data in Redux. It's just plain JavaScript objects that consist of type, and if you want, you can also pass data payload with the action.
 
-Example (with data payload)
+Example
 ```javascript
-const CARD_FLIP = 'CARD_FLIP'
+const GAME_RESET = 'GAME_RESET'
 {
-  type: CARD_FLIP
-  index: 5
+  type: GAME_RESET
 }
 ```
 
@@ -72,16 +71,39 @@ Action creators are functions that create actions. To trigger an action, you'll 
 
 Example
 ```javascript
-function flipCard(index) {
+function resetGame(index) {
   return {
-    type: CARD_FLIP,
-    index: index,
+    type: GAME_RESET
   }
 }
 
-dispatch(flipCard(5))
+dispatch(resetGame())
 ```
+
 ### Reducers
+Actions describes that something happens and that's all the actions do. We need something that can change the state and do an act based on the action. This is where the reducers will do their magic.
+
+The reducer is pure, which means that it takes the previous state and the action, and creates the next state.
+```
+(previousState, action) => newState
+```
+Do you remember that we used reducers in day 2? https://github.com/bekk/funksjonell-frontend/tree/master/day2#reduce
+Back then we used it to calculate a sum of Oscars. In Redux we are using reducers to update the state and store it as one JavaScript object.
+
+```javascript
+
+const gameReducer = (state = initialStateGame, action) => {
+  switch (action.type) {
+  case CARD_FLIPPED:
+    return Object.assign({}, state, {
+      rounds: state.rounds + 1
+    });
+  default:
+    return state;
+  }
+};
+
+```
 
 
 ### Store
@@ -105,7 +127,9 @@ dispatch(flipCard(5))
 ### DevTools
 
 ### Object.assign({})
+Note on Object.assign
 
+Object.assign() is a part of ES6, but is not implemented by most browsers yet. You’ll need to either use a polyfill, a Babel plugin, or a helper from another library like
 
 
 ## Instructions
