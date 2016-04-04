@@ -116,10 +116,10 @@ Enough information, time to code!
 ### Task 1: Make a component that calls a `GAME_RESET` action
 We start by implementing the Reset button (as shown in the introduction). 
 Our first goal with Redux will be to make a button that trigger's the `GAME_RESET` action in the Redux debug panel.
-Create a React component `ResetGame` (`src/components/ResetGame.js`), consisting of a button element with an onClick-handler that triggers a function passed through the `props`.
+Create a React component `ResetGame` (`src/components/ResetGame.js`), consisting of a button element with an onClick-handler that calls a function passed through the `props`.
 Insert the new component into the `Game` component. Remember to import it at the top of the file. 
 
-The onClick function that is passed from the `Game` parent should dispatch the `resetGame()` action creator (`src/actions.js`).
+The onClick callback that is passed from the `Game` parent should dispatch the `resetGame()` action creator (`src/actions.js`).
 First, `connect` the `Game` component when exporting it, like so:
 ```
 export default connect()(Game);
