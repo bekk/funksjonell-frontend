@@ -116,16 +116,20 @@ Enough information, time to code!
 ### Task 1: Make a component that calls a `GAME_RESET` action
 We start by implementing the Reset button (as shown in the introduction). 
 Our first goal with Redux will be to make a button that trigger's the `GAME_RESET` action in the Redux debug panel.
-Create a React component `ResetGame`, consisting of a button element with an onClick-handler that dispatches the `resetGame()` action creator (`src/actions.js`).
-Remember to `connect` the component when exporting it, like so:
+Create a React component `ResetGame` (`src/components/ResetGame.js`), consisting of a button element with an onClick-handler that triggers a function passed through the `props`.
+Insert the new component into the `Game` component. Remember to import it at the top of the file. 
+
+The onClick function that is passed from the `Game` parent should dispatch the `resetGame()` action creator (`src/actions.js`).
+First, `connect` the `Game` component when exporting it, like so:
 ```
-export default connect()(ResetGame);
+export default connect()(Game);
 ```
-Once the component is connected, the `dispatch` function is automatically available as a prop.
+Once the component is connected, the `dispatch` function is automatically available as a prop. 
 ```
-props.dispatch(resetGame())
+<ResetGame onButtonClick ={props.dispatch(resetGame())}/>
 ```
-Insert the new component `ResetGame` into the `Game` component. Remember to import it at the top of the file.
+We have already imported the `resetGame` action for you at the top of `src/components/Game.js`.
+
 Open the game in the browser and press your newly created button, an action should be firing in the debug panel on the right side!
 
 ### Task 2: Turning static data into dynamic data - implement your first reducer
