@@ -192,15 +192,18 @@ export default connect(state => ({
 ```
 Thus, all you need to do is to pass `props.cards` to the `Game` component. Now, when you press the Restart button, all cards should flip!
     
-### Task 3: Sending an onClick handler from the Game component to the Card component - passing functions down the hierarchy
-Guro write here
-    
-### Task 4: Flip a single card - practicing the Redux pattern 
+### Task 3: Flip a single card - practicing the Redux pattern 
 Start by creating a new action creator `flipCard(card)` that returns an object with the type `CARD_FLIP` in `actions.js`. 
 Remember to export the action type constant at the top of the file.
 In the action returned by `flipCard` you also need to send the card data, so that the reducer "knows" which card to flip.
-Next, call this action creator when you click on a card (Hint: see `ResetGame`), remember to import the `connect` function. 
-Check the Redux panel to see if the action is firing.
+
+### Task 4: Sending an onClick handler from the Game component to the Card component - passing functions down the hierarchy
+Now, we need to dispatch the `flipCard` action creator when you click on a card.
+In Task 1 we connected the `Game` component, which gave us access to the `dispatch` function. 
+Thus, in the Game component, we can can create a callback function that dispatches `flipCard`, and pass this callback down to the `Card` component.
+(Hint: see ResetGame.js, the only difference here is that we need to pass the callback through the `Board` component, as the `Card`component is not a direct child of `Game`.)
+Check the Redux panel to see if the action is firing when you click on a card.
+
 Lastly, implement the corresponding reducer, i.e. expand the switch statement that you created in `reducers.js`. 
 When you have finished this task, cards should open when you click on them. 
 
