@@ -42,28 +42,48 @@ const Game = ( props ) => {
 React.render(<Game data={ data } />, document.body);
 ```
 
-In this extract, both Score and Game are view components that we used last time. The Game component are the one being rendered by React, and this component is using the Score component. In the render function, we are passing the data object as a prop to the Game component, which are passed on down to the Score component. At last the Score component are using the receiving prop to show the score in a div.
+In this extract, both Score and Game are view components that we used last time. The Game component is the one being rendered by React, and this component uses the Score component. In the render function, we are passing the data object as a prop to the Game component, which is passed on down to the Score component. At last the Score component uses the receiving prop to show the score in a div.
 
-This was just an example of one child component, but there are now problem with React to create as many children as you want.
+This was just an example with one child component, but a `react` component can have as many children as you like.
 
 ## Redux
-All applications needs a way to handle state (server response, cached data, selected button or filter etc.). And as an app grows larger and becomes more complex, a simple way to handle the state is essential.
+All applications needs a way to handle state (server response, cached data, selected button or filter etc.). And as an app grows larger and becomes more complex, a simple way to handle the state will help to make your app development much easier.
 
 Redux is a predictable state container which means that, by imposing restriction on how and when updates can happen, you can be sure that you always know what your state will be like.
 
 So let´s dig deeper into the most important concepts of Redux.
 
-//store, reducer, action (objekt med evt type), dispatch, rerendring billig med React, devtools!, objkt assign
+#### Unidirectional data flow
+In Redux all data flows in one direction.
+
+```
+         +------+
+         |      |
+    +----> View +-----+
+    |    |      |     |
+    |    +------+     |
++---+---+        +----v---+
+|       |        |        |
+| Store <--------+ Action |
+|       |        |        |
++-------+        +--------+
+```
+
+From the view component you call store.dispatch(action).
+The Redux store then calls the reducer function you gave it.
+The root reducer may combine the output of multiple reducers into a single state.
+The Redux store then saves the complete state tree returned by the reducer.
 
 ### Actions
 Actions are the way to pass data in Redux. It's just plain JavaScript objects that consist of type, and if you want, you can also pass data payload with the action.
 
 Example
 ```javascript
-const GAME_RESET = 'GAME_RESET'
-{
-  type: GAME_RESET
-}
+const CARD_FLIPPED = 'CARD_FLIPPED'
+const action = {
+    type: CARD_FLIPPED,
+    payload: card
+};
 ```
 
 #### Action creator
@@ -71,19 +91,19 @@ Action creators are functions that create actions. To trigger an action, you'll 
 
 Example
 ```javascript
-function resetGame(index) {
+function flipCard(card) {
   return {
-    type: GAME_RESET
-  }
-}
+    type: CARD_FLIPPED,
+    payload: card
+};
 
-dispatch(resetGame())
+dispatch(flipCard({ id: 0, ... ,open: false }))
 ```
 
 ### Reducers
-Actions describes that something happens and that's all the actions do. We need something that can change the state and do an act based on the action. This is where the reducers will do their magic.
+With actions you trigger something to happens, but we will need something that can change the state and do an act based on the action as well. This is where the reducers will do their magic.
 
-The reducer is pure, which means that it takes the previous state and the action, and creates the next state.
+The reducer is a pure function, which means that it takes the previous state and the action, and creates the next state.
 ```
 (previousState, action) => newState
 ```
@@ -113,12 +133,11 @@ As you can see in the reducer, we are using a function called Object.assign. Let
 To ensure that the current state is not mutated, Object.assign copies the values from one source object to a target object.
 
 ```javascript
-var state = { rounds: 0 };
-var action = { rounds: state.rounds + 1 }
+let state = { rounds: 0, finished: false };
+let action = { rounds: state.rounds + 1 }
 
-var newState = Object.assign({}, state, action);
+let newState = Object.assign({}, state, action);
 
-//console.log(newState) ==> { rounds: 1 }
 ```
 - The first argument is an empty target object.
 - The second argument is the source object or in this case the current state
@@ -131,28 +150,6 @@ In Redux we have one single store. The store brings the reducers and the actions
 - Allow access to getState()
 - Allow state to be updated via dispatch(action)
 - Handle registration and unregistration of listeners.
-- Combine reducers
-
-#### Unidirectional data flow
-In Redux all data flows in one direction.
-
-```
-         +------+
-         |      |
-    +----> View +-----+
-    |    |      |     |
-    |    +------+     |
-+---+---+        +----v---+
-|       |        |        |
-| Store <--------+ Action |
-|       |        |        |
-+-------+        +--------+
-```
-
-From the view component you call store.dispatch(action).
-The Redux store then calls the reducer function you gave it.
-The root reducer may combine the output of multiple reducers into a single state.
-The Redux store then saves the complete state tree returned by the reducer.
 
 ### DevTools
 The Redux DevTools is a handy browser tool when developing Redux. It gives you the opportunity to inspect state and action payload, lets you go back in time by redoing actions and let's you see potential errors your reducer throws. In the source code provided for day 3, DevTools is included.
