@@ -69,11 +69,6 @@ In Redux all data flows in one direction.
 +-------+        +--------+
 ```
 
-From the view component you call store.dispatch(action).
-The Redux store then calls the reducer function you gave it.
-The root reducer may combine the output of multiple reducers into a single state.
-The Redux store then saves the complete state tree returned by the reducer.
-
 ### Actions
 Actions are the way to pass data in Redux. It's just plain JavaScript objects that consist of type, and if you want, you can also pass data payload with the action.
 
