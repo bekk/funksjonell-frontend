@@ -36,7 +36,7 @@ const Game = ( props ) => {
   <div className='game'>
     <Score score={ props.data.score } />
   </div>
-  )    
+  )
 }
 
 React.render(<Game data={ data } />, document.body);
@@ -156,7 +156,7 @@ Now, enough introduction. Let´s start the fun!
 
 Today we will complete our Memory Game app. For the basic setup of the game that we did last time, jsbin was a good platform.
 However, as our code base will be growing today, having all our code in one single file becomes more of an obstacle.
-Thus, we have created a "real-world" project structure with the React code from last time.  
+Thus, we have created a "real-world" project structure with the React code from last time.
 
 ### Clone and install
 
@@ -212,7 +212,7 @@ export default connect()(Game);
 ```
 Once the component is connected, the `dispatch` function is automatically available as a prop.
 ```
-<ResetGame onButtonClick ={ () => props.dispatch(resetGame()) }/>
+<ResetGame onButtonClick={ () => props.dispatch(resetGame()) }/>
 ```
 We have already imported the `resetGame` action for you at the top of `src/components/Game.js`.
 
@@ -273,7 +273,7 @@ Now, to complete this task, we need to insert the state data into our `App`, ins
 The `App` is already connected to the store by the statement at the bottom of the file:
 ```
 export default connect(state => ({
-    cards: state.card
+    cards: state.cards
 }))(App);
 ```
 Thus, all you need to do is to pass `props.cards` to the `Game` component. Now, when you press the Restart button, all cards should flip!
@@ -293,13 +293,15 @@ Check the Redux panel to see if the action is firing when you click on a card.
 Lastly, implement the corresponding reducer, i.e. expand the switch statement that you created in `reducers.js`.
 When you have finished this task, cards should open when you click on them.
 
-
 ### Task 5: Keeping track of the game state - creating a reducer from scratch
 We want the score to increase each time we flip a card. Right now the score is static.
-We need to create a new reducer, `gameReducer`, to keep the game state (`rounds`and `bestScore`).  
+We need to create a new reducer, `gameReducer`, to keep the game state (`rounds`and `bestScore`).
 This reducer has to increase the number of rounds each time the `CARD_FLIP` action is called.
 It should also reset the score (but not the highscore) when the `GAME_RESET` action is fired.
 Create this reducer, remember to set the initial state and to export the reducer (i.e. pass it as an argument to the `combineReducers`function).
+
+##### A note about `combineReducers`
+`combineReducers` takes an object as an argument. The keys of this object (`cards` and `game` in our case) will be the names of the properties on the `state` argument we have seen in the `connect` function. The values of the object passed to `combineReducers` are individual reducers that each manage their own subtree of the application state.
 
 You may also want to set the initial state of all the cards to be closed and not matched.
 

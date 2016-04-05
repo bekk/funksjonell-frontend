@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Score from './Score';
 import Highscore from './Highscore';
