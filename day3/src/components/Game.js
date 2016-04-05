@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Score from './Score';
-import Highscore from './Highscore';
+import BestScore from './BestScore';
 import Board from './Board';
 import {
     resetGame
@@ -12,8 +12,8 @@ const Game = ( props ) => {
   return (
     <div className='game'>
       <h1>Memory game</h1>
-      <Score score={ props.rounds } />
-      <Highscore highscore={ props.highscore } />
+      <Score score={ props.flips } />
+      <BestScore bestScore={ props.bestScore } />
       <Board cards={ props.cards } />
     </div>
   )

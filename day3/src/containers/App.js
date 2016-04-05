@@ -9,16 +9,16 @@ import Game from '../components/Game';
 const App = props => (
     <Game
         cards={ cards }
-        rounds={ game.rounds }
-        highscore={ game.highscore }
+        flips={ game.flips }
+        bestScore={ game.bestScore }
     />
 );
 
 App.propTypes = {
     cards: React.PropTypes.array,
     game: React.PropTypes.shape({
-        rounds: React.PropTypes.number,
-        highscore: React.PropTypes.number,
+        flips: React.PropTypes.number,
+        bestScore: React.PropTypes.number,
     })
 };
 

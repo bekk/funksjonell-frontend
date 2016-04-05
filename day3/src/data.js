@@ -14,7 +14,7 @@ export const cards = [
 ]
 
 export const game = {
-    rounds: 10,
-    highscore: Number.MAX_VALUE
+    flips: 10,
+    bestScore: Number.MAX_VALUE
 }
 
