@@ -277,7 +277,7 @@ export default connect(state => ({
 }))(App);
 ```
 Thus, all you need to do is to pass `props.cards` to the `Game` component. Now, when you press the Restart button, all cards should flip!
-    
+
 ### Task 3: Flip a single card - practicing the Redux pattern
 Start by creating a new action creator `flipCard(card)` that returns an object with the type `CARD_FLIP` in `actions.js`.
 Remember to export the action type constant at the top of the file.
