@@ -3,6 +3,9 @@ import React from 'react';
 import Score from './Score';
 import Highscore from './Highscore';
 import Board from './Board';
+import {
+    resetGame
+} from '../actions';
 
 const Game = ( props ) => {
   return (
