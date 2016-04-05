@@ -113,7 +113,7 @@ const gameReducer = (state = initialStateGame, action) => {
   switch (action.type) {
   case CARD_FLIPPED:
     return Object.assign({}, state, {
-      rounds: state.rounds + 1
+      flips: state.flips + 1
     });
   default:
     return state;
@@ -128,8 +128,8 @@ As you can see in the reducer, we are using a function called Object.assign. Let
 To ensure that the current state is not mutated, Object.assign copies the values from one source object to a target object.
 
 ```javascript
-let state = { rounds: 0, finished: false };
-let action = { rounds: state.rounds + 1 }
+let state = { flips: 0, finished: false };
+let action = { flips: state.flips + 1 }
 
 let newState = Object.assign({}, state, action);
 
@@ -295,9 +295,9 @@ When you have finished this task, cards should open when you click on them.
 
 ### Task 5: Keeping track of the game state - creating a reducer from scratch
 We want the score to increase each time we flip a card. Right now the score is static.
-We need to create a new reducer, `gameReducer`, to keep the game state (`rounds`and `bestScore`).
-This reducer has to increase the number of rounds each time the `CARD_FLIP` action is called.
-It should also reset the score (but not the highscore) when the `GAME_RESET` action is fired.
+We need to create a new reducer, `gameReducer`, to keep the game state (`flips` and `bestScore`).
+This reducer has to increase the number of flips each time the `CARD_FLIP` action is called.
+It should also reset the score (but not the bestScore) when the `GAME_RESET` action is fired.
 Create this reducer, remember to set the initial state and to export the reducer (i.e. pass it as an argument to the `combineReducers`function).
 
 ##### A note about `combineReducers`
