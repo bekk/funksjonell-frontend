@@ -25,19 +25,19 @@ const initialStateCards = [
 const cardReducer = (state = initialStateCards, action) => {
   switch (action.type) {
   case CARD_FLIPPED:
-    return state.map(c =>
-      c.id === action.payload.id ?
-        Object.assign({}, c, { open: !c.open }) :
-        c
+    return state.map(card =>
+      card.id === action.payload.id ?
+        Object.assign({}, card, { open: !card.open }) :
+        card
     );
   case CARDS_MATCHED:
-    return state.map(c =>
-      c.id === action.payload.firstCard.id || c.id === action.payload.secondCard.id ?
-        Object.assign({}, c, {
+    return state.map(card =>
+      card.id === action.payload.firstCard.id || card.id === action.payload.secondCard.id ?
+        Object.assign({}, card, {
           matched: true,
           open: true
         }) :
-        c
+        card
     );
   case GAME_RESET:
     return initialStateCards;
