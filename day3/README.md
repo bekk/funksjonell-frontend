@@ -126,7 +126,7 @@ export default connect()(Game);
 ```
 Once the component is connected, the `dispatch` function is automatically available as a prop. 
 ```
-<ResetGame onButtonClick ={props.dispatch(resetGame())}/>
+<ResetGame onButtonClick ={ () => props.dispatch(resetGame()) }/>
 ```
 We have already imported the `resetGame` action for you at the top of `src/components/Game.js`.
 
