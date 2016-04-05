@@ -146,6 +146,8 @@ In Redux we have one single store. The store brings the reducers and the actions
 - Allow state to be updated via dispatch(action)
 - Handle registration and unregistration of listeners.
 
+In this workshop we are doing Redux with React, and by using the npm package called react-redux, we can use the function called connect. Connect is a function that makes the Redux store available to the component. And by this you get access to call the dispatcher and get data from the reducers.
+
 ### DevTools
 The Redux DevTools is a handy browser tool when developing Redux. It gives you the opportunity to inspect state and action payload, lets you go back in time by redoing actions and let's you see potential errors your reducer throws. In the source code provided for day 3, DevTools is included.
 
