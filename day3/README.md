@@ -313,9 +313,11 @@ Instructions to game logic HERE
 ## Outro
 Thanks for your attention during this 3-days course. Hope you enjoyed it!
 
-If you want to learn more of Functional programming, React and Redux visit the following sites:
+If you want to learn more of React and Redux visit the following sites:
 
-- Learn more Redux at Egghead.io : goo.gl/2uUnBg
-- ...
+- About React: https://facebook.github.io/react/
+- Learn more Redux at Egghead.io : https://goo.gl/2uUnBg
+- Check out one of the first talks from the creator of Redux (Dan Abramov): https://www.youtube.com/watch?v=xsSnOQynTHs
+
 
 If you want to know more about BEKK visit www.bekk.no. And if you are searching job opportunities send a mail to jobb@bekk.no
