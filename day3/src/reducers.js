@@ -47,7 +47,7 @@ const cardReducer = (state = initialStateCards, action) => {
 };
 
 const initialStateGame = {
-  finished: false,
+  finished: true,
   flips: 0,
   bestScore: Number.MAX_VALUE
 };
@@ -65,7 +65,8 @@ const gameReducer = (state = initialStateGame, action) => {
     });
   case GAME_RESET:
     return Object.assign({}, initialStateGame, {
-      bestScore: state.bestScore
+      bestScore: state.bestScore,
+      finished: false
     });
   default:
     return state;
