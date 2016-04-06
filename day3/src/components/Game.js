@@ -10,7 +10,7 @@ import {
 
 const Game = ( props ) => {
 
- handleCardClick = () => {
+ const handleCardClick = () => {
      //Implement onCardClick callback here
  };
  
