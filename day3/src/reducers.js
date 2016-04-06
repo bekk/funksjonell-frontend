@@ -47,7 +47,7 @@ const cardReducer = (state = initialStateCards, action) => {
 };
 
 const initialStateGame = {
-  finished: true,
+  finished: false,
   flips: 0,
   bestScore: Number.MAX_VALUE
 };
