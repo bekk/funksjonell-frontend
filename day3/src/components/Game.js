@@ -9,6 +9,11 @@ import {
 } from '../actions';
 
 const Game = ( props ) => {
+
+ const handleCardClick = () => {
+     //Implement onCardClick callback here
+ };
+ 
   return (
     <div className='game'>
       <h1>Memory game</h1>
