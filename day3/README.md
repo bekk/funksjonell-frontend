@@ -20,7 +20,7 @@ React is all about building components.
 
 Here is an extract of what we used in day 2.
 
-```javascript
+```jsx
 const data = {
     score: 30,
 };
@@ -164,26 +164,26 @@ Thus, we have created a "real-world" project structure with the React code from 
 Ensure that you have Node.js installed, otherwise install from https://nodejs.org/.
 
 Download this zip file containing the project https://github.com/bekk/funksjonell-frontend/archive/master.zip, or use
-```
+```shell
 git clone https://github.com/bekk/funksjonell-frontend.git
 ```
 if you have git installed.
 
 Open the terminal/command line window and open the day3 folder:
 
-```
+```shell
 cd funksjonell-frontend/day3
 ```
 
 Install the project's dependencies:
 
-```
+```shell
 npm install
 ```
 
 Start the app:
 
-```
+```shell
 npm start
 ```
 
@@ -208,11 +208,11 @@ Insert the new component into the `Game` component. Remember to import it at the
 
 The onClick callback that is passed from the `Game` parent should dispatch the `GAME_RESET` action by calling the `resetGame()` action creator (`src/actions.js`).
 First, `connect` the `Game` component when exporting it, like so:
-```
+```js
 export default connect()(Game);
 ```
 Once the component is connected, the `dispatch` function is automatically available as a prop.
-```
+```jsx
 <ResetGame onButtonClick={ () => props.dispatch(resetGame()) }/>
 ```
 We have already imported the `resetGame` action for you at the top of `src/components/Game.js`.
@@ -223,7 +223,7 @@ Open the game in the browser and press your newly created button, an action shou
 Now that we are able to fire an event with an action creator, we need to be able to pick up this event. This is where the reducers are used.
 We want all the cards to flip when we press reset. Currently, our cards are static data, we need to move them into the `reducers.js` file and make them respond to the action we have dispatched.
 Thus, we copy the card data from `data.js` and set the initial card state like so
-```
+```js
 const initialStateCards = [
                               { id: 0, item: 'http://lorempixel.com/200/200/cats/1/', matched: false, open: false},
                               { id: 1,item: 'http://lorempixel.com/200/200/cats/6/', matched: true, open: true},
@@ -272,7 +272,7 @@ You can check if you are doing things correctly by inspecting the `cardReducer` 
 
 Now, to complete this task, we need to insert the state data into our `App`, instead of the static data from `data.js`.
 The `App` is already connected to the store by the statement at the bottom of the file:
-```
+```js
 export default connect(state => ({
     cards: state.cards
 }))(App);
