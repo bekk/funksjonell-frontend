@@ -205,7 +205,7 @@ Our first goal with Redux will be to make a button that trigger's the `GAME_RESE
 Create a React component `ResetGame` (`src/components/ResetGame.js`), consisting of a button element with an onClick-handler that calls a function passed through the `props`.
 Insert the new component into the `Game` component. Remember to import it at the top of the file.
 
-The onClick callback that is passed from the `Game` parent should dispatch the `resetGame()` action creator (`src/actions.js`).
+The onClick callback that is passed from the `Game` parent should dispatch the `GAME_RESET` action by calling the `resetGame()` action creator (`src/actions.js`).
 First, `connect` the `Game` component when exporting it, like so:
 ```
 export default connect()(Game);
@@ -284,9 +284,9 @@ Remember to export the action type constant at the top of the file.
 In the action returned by `flipCard` you also need to send the card data, so that the reducer "knows" which card to flip.
 
 ### Task 4: Sending an onClick handler from the Game component to the Card component - passing functions down the hierarchy
-Now, we need to dispatch the `flipCard` action creator when you click on a card.
+Now, we need to dispatch the `CARD_FLIP` action when you click on a card.
 In Task 1 we connected the `Game` component, which gave us access to the `dispatch` function.
-Thus, in the Game component, we can can create a callback function `handleCardClick()` that dispatches `flipCard`, and pass this callback down to the `Card` component.
+Thus, in the `Game` component, we can can create a callback function `handleCardClick()` that calls the `dispatch` function with the `flipCard` action creator as an argument. This callback should be passed down to the `Card` component. 
 (Hint: see ResetGame.js, the only difference here is that we need to pass the callback through the `Board` component, as the `Card`component is not a direct child of `Game`.)
 Check the Redux panel to see if the action is firing when you click on a card.
 
@@ -312,14 +312,14 @@ You have completed this task when the score increases as you flip the cards AND 
 There are many ways to implement the game logic, you can try doing it yourself or you can follow our tips:
 Let's go back to the `handleCardClick` callback in `Game,` which is called when you press a card, this is where we found it best to put the following game logic.
 ##### a)  
-On each turn, the player should only be allowed to open two cards at a time. Thus, implement the function `canFlipCard(card, cards)` that checks if you are allowed to dispatch the `flipCard` action creator. 
+On each turn, the player should only be allowed to open two cards at a time. Thus, implement the function `canFlipCard(card, cards)` that checks if you are allowed to dispatch the `CARD_FLIP` action. 
 ##### b) 
 If the player manages to open a matching pair of cards, we need to change the state of these two cards, i.e. set `matched` to `true`.
-Create a function `findMatch(card, cards)` that checks for a match. If a match is found, dispatch a new action creator: `matchCards(card1, card2)`. 
-Implement this function and the corresponding reducer.
+Create a function `findMatch(card, cards)` that checks for a match. If a match is found, dispatch a `CARD_MATCH` action by calling a new action creator: `matchCards(card1, card2)` . 
+Implement this function and the corresponding case in the `cardsReducer`.
 ##### c) 
 If you have a match, you need to check if you have enough matches to finish the game. Implement the function `willMatchFinishGame(cards)`. 
-If this function returns `true`, dispatch a new action creator: `finishGame()`. Implement this function and the corresponding reducer. Hint: you may want to add a new prop `isFinished` to the the game reducer state.
+If this function returns `true`, dispatch a new action `GAME_FINISH` with a new action creator: `finishGame()`. Implement this function and the corresponding case in the `gameReducer`. Hint: you may want to add a new prop `isFinished` to the the game reducer state.
 
 ### Task 7: Finishing touch on the UI 
 When the game is finshed, the ui should indicate this. Implement a `GameFinished` component that shows the final score and maybe some other html elements. Wrap the `ResetGame` component inside this component. This component should be shown instead of the `Board`, when `isFinished` is `true`.  
