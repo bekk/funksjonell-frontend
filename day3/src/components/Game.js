@@ -19,15 +19,16 @@ import {
   willMatchFinishGame
 } from '../utils';
 
-class Game extends React.Component {
-  constructor(props) {
-    super(props);
+const Game = (props) => {
+  const {
+    flips,
+    bestScore,
+    cards,
+    isFinished,
+    dispatch
+    } = props;
 
-    this.handleCardClick = this.handleCardClick.bind(this);
-  }
-
-  handleCardClick(card) {
-    const { cards, dispatch } = this.props;
+  const handleCardClick = (card) => {
 
     if (!canFlipCard(card, cards)) {
       return;
@@ -43,35 +44,25 @@ class Game extends React.Component {
         dispatch(finishGame());
       }
     }
-  }
+  };
 
-  render() {
-    const {
-      flips,
-      bestScore,
-      cards,
-      isFinished,
-      dispatch
-    } = this.props;
-    return (
-      <div className="game">
-        <h1>Memory game</h1>
-        <Score score={ flips } />
-        <BestScore bestScore={ bestScore } />
-        { isFinished ?
-          <GameFinished
-            score={ flips }
-            onResetClick={ () => dispatch(resetGame()) }
-          /> :
-          <Board
-            cards={ cards }
-            onCardClick={ this.handleCardClick }
-          />
-        }
-      </div>
-    );
-  }
-}
+  return (
+    <div className="game">
+      <h1>Memory game</h1>
+      <Score score={ flips } />
+      <BestScore bestScore={ bestScore } />
+      { isFinished ?
+        <GameFinished score={ flips }
+          onResetClick={ () => dispatch(resetGame()) }
+        /> :
+        <Board
+          cards={ cards }
+          onCardClick={ handleCardClick }
+        />
+      }
+    </div>
+  );
+};
 
 Game.propTypes = {
   flips: React.PropTypes.number.isRequired,
