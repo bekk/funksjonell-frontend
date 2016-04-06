@@ -2,11 +2,11 @@
 ##Introduction
 Welcome to day 3, and the last day of the course - Functional programming in JavaScript with React and Redux. Today we are going to have a look at Redux - A predictable state container for JavaScript apps. We will continue where we left at day 2 and finish up the Memory game in Redux pattern style.
 
-First of all we will have a recap of some basic React to ensure that everyone knows the concepts from day 2. We will then start introducing the concepts of actions, reducer and explain how the data flows through your application. For more information about Redux, see [Redux](http://redux.js.org/).
+First of all we will have a recap of some basic React to ensure that everyone knows the concepts from day 2. We will then start introducing the concepts of actions and reducer and explain how the data flows through your application. For more information about Redux, see [Redux](http://redux.js.org/).
 
 Remember, we are here to help you learn. Do not hesitate to ask questions. We will walk around and help you with the assignments. Don't hesitate to ask us if you're stuck!
 
-Let´s get started!
+Let's get started!
 
 ## Summary from day 2 - React
 You can find the material from day 2 [here](https://github.com/bekk/funksjonell-frontend/tree/master/day2).
@@ -42,12 +42,12 @@ const Game = ( props ) => {
 React.render(<Game data={ data } />, document.body);
 ```
 
-In this extract, both `Score` and `Game` are view components that we used last time. The `Game` component is the one being rendered by React, and this component uses the `Score` component. In the render function, we are passing the data object as a prop to the Game component, which is passed on down to the Score component. At last the Score component uses the receiving prop to show the score in a div.
+In this extract, both `Score` and `Game` are view components that we used last time. The `Game` component is the one being rendered by React, and this component uses the `Score` component. In the render function, we are passing the data object as a prop to the `Game` component, which is passed on down to the `Score` component. At last the `Score` component uses the receiving prop to show the score in a div.
 
-This was just an example with one child component, but a `react` component can have as many children as you like.
+This was just an example with one child component, but a `React` component can have as many children as you like.
 
 ## Redux
-All applications needs a way to handle state (server response, cached data, selected button or filter etc.). And as an app grows larger and becomes more complex, a simple way to handle the state will help to make your app development much easier.
+All applications need a way to handle state (server response, cached data, selected button or filter etc.). And as an app grows larger and becomes more complex, a simple way to handle the state will help to make your app development much easier.
 
 Redux is a predictable state container which means that, by imposing restriction on how and when updates can happen, you can be sure that you always know what your state will be like.
 
