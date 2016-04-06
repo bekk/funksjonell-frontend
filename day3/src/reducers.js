@@ -4,7 +4,8 @@ import {
   CARD_FLIPPED,
   CARDS_MATCHED,
   GAME_FINISHED,
-  GAME_RESET
+  GAME_RESET,
+  NONMATCHED_CARDS_CLOSED
 } from './actions';
 
 const initialStateCards = [
@@ -20,7 +21,7 @@ const initialStateCards = [
   { id: 9, item: 'http://placekitten.com/200/200?image=6', matched: false, open: false },
   { id: 10, item: 'http://placekitten.com/200/200?image=3', matched: false, open: false },
   { id: 11, item: 'http://placekitten.com/200/200?image=5', matched: false, open: false },
-];
+].sort(() => Math.random() > 0.5);
 
 const cardReducer = (state = initialStateCards, action) => {
   switch (action.type) {
@@ -41,6 +42,10 @@ const cardReducer = (state = initialStateCards, action) => {
     );
   case GAME_RESET:
     return initialStateCards;
+  case NONMATCHED_CARDS_CLOSED:
+    return state.map(card =>
+        !card.matched ?  Object.assign({}, card, { open: false }) :  card
+      );
   default:
     return state;
   }
