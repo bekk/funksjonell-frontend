@@ -42,7 +42,7 @@ const Game = ( props ) => {
 React.render(<Game data={ data } />, document.body);
 ```
 
-In this extract, both Score and Game are view components that we used last time. The Game component is the one being rendered by React, and this component uses the Score component. In the render function, we are passing the data object as a prop to the Game component, which is passed on down to the Score component. At last the Score component uses the receiving prop to show the score in a div.
+In this extract, both `Score` and `Game` are view components that we used last time. The `Game` component is the one being rendered by React, and this component uses the `Score` component. In the render function, we are passing the data object as a prop to the Game component, which is passed on down to the Score component. At last the Score component uses the receiving prop to show the score in a div.
 
 This was just an example with one child component, but a `react` component can have as many children as you like.
 
@@ -123,9 +123,9 @@ const gameReducer = (state = initialStateGame, action) => {
 ```
 
 #### Object.assign() - Part of ES6
-As you can see in the reducer, we are using a function called Object.assign. Let's have a look and see what it does.
+As you can see in the reducer, we are using a function called `Object.assign`. Let's have a look and see what it does.
 
-To ensure that the current state is not mutated, Object.assign copies the values from one source object to a target object.
+To ensure that the current state is not mutated, `Object.assign` copies the values from one source object to a target object.
 
 ```javascript
 let state = { flips: 0, finished: false };
@@ -146,7 +146,7 @@ In Redux we have one single store. The store brings the reducers and the actions
 - Allow state to be updated via dispatch(action)
 - Handle registration and unregistration of listeners.
 
-In this workshop we are doing Redux with React, and by using the npm package called react-redux, we can use the function called connect. Connect is a function that makes the Redux store available to the component. And by this you get access to call the dispatcher and get data from the reducers.
+In this workshop we are doing Redux with React, and by using the npm package called react-redux, we can use the function `connect`. `connect` is a function that makes the Redux store available to the component. And by this you get access to call the dispatcher and get data from the reducers.
 
 ### DevTools
 The Redux DevTools is a handy browser tool when developing Redux. It gives you the opportunity to inspect state and action payload, lets you go back in time by redoing actions and let's you see potential errors your reducer throws. In the source code provided for day 3, DevTools is included.
@@ -191,7 +191,7 @@ Open your favorite editor, if you don't have one installed, download sublime htt
 We have put the components you created last time into separate files in `src/components`.
 You can also find the card data (`src/data.js`), the css-file (`src/app.css`) and the html-file (`public/index.html`) from jsbin inside the project.
 
-In addition, we have created an `App` component in `src/containers` that wraps around the whole game.
+In addition, we have created an `App` component in `src/components` that wraps around the whole game.
 We have set up the Redux store for you in `src/configureStore`
 
 There is also a `DevTools` component which gives you the helpful redux panel, as demonstrated in our introduction.
