@@ -286,7 +286,7 @@ In the action returned by `flipCard` you also need to send the card data, so tha
 ### Task 4: Sending an onClick handler from the Game component to the Card component - passing functions down the hierarchy
 Now, we need to dispatch the `flipCard` action creator when you click on a card.
 In Task 1 we connected the `Game` component, which gave us access to the `dispatch` function.
-Thus, in the Game component, we can can create a callback function that dispatches `flipCard`, and pass this callback down to the `Card` component.
+Thus, in the Game component, we can can create a callback function `handleCardClick()` that dispatches `flipCard`, and pass this callback down to the `Card` component.
 (Hint: see ResetGame.js, the only difference here is that we need to pass the callback through the `Board` component, as the `Card`component is not a direct child of `Game`.)
 Check the Redux panel to see if the action is firing when you click on a card.
 
@@ -297,7 +297,7 @@ When you have finished this task, cards should open when you click on them.
 We want the score to increase each time we flip a card. Right now the score is static.
 We need to create a new reducer, `gameReducer`, to keep the game state (`flips` and `bestScore`).
 This reducer has to increase the number of flips each time the `CARD_FLIP` action is called.
-It should also reset the score (but not the bestScore) when the `GAME_RESET` action is fired.
+It should also reset the score (but not the `bestScore`) when the `GAME_RESET` action is fired.
 Create this reducer, remember to set the initial state and to export the reducer (i.e. pass it as an argument to the `combineReducers`function).
 
 ##### A note about `combineReducers`
@@ -309,8 +309,18 @@ Make sure that the `App` component receives the game state, hint: take a look at
 You have completed this task when the score increases as you flip the cards AND is reset to zero when you press the reset button.
 
 ### Task 6: Putting the game logic into the app - functional programming
-Instructions to game logic HERE
+There are many ways to implement the game logic, you can try doing it yourself or you can follow our tips:
+Let's go back to the `handleCardClick` callback in `Game,` which is called when you press a card, this is where we found it best to put the following game logic.
+##### a)  
+On each turn, the player should only be allowed to open two cards at a time. Thus, implement the function `canFlipCard(card, cards)` that checks if you are allowed to dispatch the `flipCard` action creator. 
+##### b) 
+If the player manages to open a matching pair of cards we need to change the state of these two cards, i.e. set `matched` to `true`.
+Create a function `findMatch(card, cards)` that checks for a match. If a match is found, dispatch a new action creator `matchCards(card1, card2)`. Implement this action creator in the and the corresponding reducer.
+##### c) 
+If you have a match, you need to check if you have enough matches to finish the game. Implement the function `willMatchFinishGame(cards)`. If this function returns `true`, dispatch a new `finishGame()` action creator. Implement this action creator and the corresponding reducer. Hint: you may want to add a new prop `isFinished` to the the game reducer state.
 
+### Task 7: Finishing touch on the UI 
+When the game is finshed, the ui should indicate this. Implement a `GameFinished` component that shows the final score and maybe some other html elements. Wrap the `ResetGame` component inside this component. This component should be shown instead of the `Board`, when `isFinished` is `true`.  
 
 ## Outro
 Thanks for your attention during this 3-days course. Hope you enjoyed it!
