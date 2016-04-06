@@ -90,7 +90,8 @@ function flipCard(card) {
   return {
     type: CARD_FLIPPED,
     payload: card
-};
+  };
+}
 
 dispatch(flipCard({ id: 0, ... ,open: false }))
 ```
