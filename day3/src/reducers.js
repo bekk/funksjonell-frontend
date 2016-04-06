@@ -70,7 +70,7 @@ const gameReducer = (state = initialStateGame, action) => {
     });
   case GAME_RESET:
     return Object.assign({}, initialStateGame, {
-      bestScore: state.bestScore,
+      flips: 0,
       finished: false
     });
   default:
