@@ -314,10 +314,12 @@ Let's go back to the `handleCardClick` callback in `Game,` which is called when 
 ##### a)  
 On each turn, the player should only be allowed to open two cards at a time. Thus, implement the function `canFlipCard(card, cards)` that checks if you are allowed to dispatch the `flipCard` action creator. 
 ##### b) 
-If the player manages to open a matching pair of cards we need to change the state of these two cards, i.e. set `matched` to `true`.
-Create a function `findMatch(card, cards)` that checks for a match. If a match is found, dispatch a new action creator `matchCards(card1, card2)`. Implement this action creator in the and the corresponding reducer.
+If the player manages to open a matching pair of cards, we need to change the state of these two cards, i.e. set `matched` to `true`.
+Create a function `findMatch(card, cards)` that checks for a match. If a match is found, dispatch a new action creator: `matchCards(card1, card2)`. 
+Implement this function and the corresponding reducer.
 ##### c) 
-If you have a match, you need to check if you have enough matches to finish the game. Implement the function `willMatchFinishGame(cards)`. If this function returns `true`, dispatch a new `finishGame()` action creator. Implement this action creator and the corresponding reducer. Hint: you may want to add a new prop `isFinished` to the the game reducer state.
+If you have a match, you need to check if you have enough matches to finish the game. Implement the function `willMatchFinishGame(cards)`. 
+If this function returns `true`, dispatch a new action creator: `finishGame()`. Implement this function and the corresponding reducer. Hint: you may want to add a new prop `isFinished` to the the game reducer state.
 
 ### Task 7: Finishing touch on the UI 
 When the game is finshed, the ui should indicate this. Implement a `GameFinished` component that shows the final score and maybe some other html elements. Wrap the `ResetGame` component inside this component. This component should be shown instead of the `Board`, when `isFinished` is `true`.  
