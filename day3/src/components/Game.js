@@ -52,33 +52,6 @@ const Game = (props) => {
        setTimeout(() => dispatch(closeNonMatchedCards()), 1000)
     }
   };
-    /*
-      TODO:
-      Sett spillet helt til venstre på siten for å få plass til devtools.
-
-
-      actions.js
-      export const NONMATCHED_CARDS_CLOSED = 'NONMATCHED_CARDS_CLOSED';
-
-      export function closeNonMatchedCards() {
-        return {
-          type: NONMATCHED_CARDS_CLOSED
-        };
-      }
-
-      reducers.js
-      //const cardReducer = (state = initialStateCards, action) => {
-        switch (action.type) {
-        case NONMATCHED_CARDS_CLOSED:
-          return state.map(card =>
-            !card.mathed ?  Object.assign({}, card, { open: false }) :  card
-          );
-
-
-      TODO: Fjerne funksjonalitet for å lukke et kort.
-      Kun flippe et kort hvis det er lukket eller hvis det ikke er matchet.
-    */
-
 
   return (
     <div className="game">
