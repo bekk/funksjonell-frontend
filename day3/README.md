@@ -187,6 +187,11 @@ Start the app:
 npm start
 ```
 
+Open your web browser:
+```url
+http://localhost:9999
+```
+
 ### Open the project
 Open your favorite editor, if you don't have one installed, download sublime https://www.sublimetext.com/3.
 We have put the components you created last time into separate files in `src/components`.
