@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import '../app.css';
 import {cards, game} from '../data.js';
 
 import Game from '../components/Game';
